@@ -1,0 +1,334 @@
+<h3>My Location Information</h3>
+<p>Change your Location Information below.</p>
+<?php echo $html->formTag('/locations/edit') ?> 
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Location Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Location Type</label>
+					<?php echo $html->selectTag('Location/type',  array('Sidewalk'=>'Sidewalk','Garden'=>'Garden','Privately Controlled Public Space'=>'Privately Controlled Public Space','Block Party or Street Fair'=>'Block Party or Street Fair','Other'=>'Other')); ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label>Location Name</label>
+					<?php echo $html->input('Location/locationname', array('class'=>'text')) ?><br>
+					<small>&nbsp;</small>
+				</td>
+				<td style=text-align:left>
+					<label class="opt">Location Website</label>
+					<?php echo $html->input('Location/website', array('class'=>'text')) ?><br>
+					<small>www.location.com</small>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('Location/locationname', "<div class='error'>You must enter a location name.</div>") ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="street_add1">Street Address 1</label> 
+					<?php echo $html->input('Location/street_add1', array('class'=>'text')) ?> 
+				</td>
+				<td style=text-align:left>
+					<label for="street_add2" class="opt">Street Address 2</label> 
+					<?php echo $html->input('Location/street_add2', array('class'=>'text')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="city">City</label> 
+					<?php echo $html->input('Location/city', array('class'=>'text')) ?> 
+				</td>
+				<td style=text-align:left>
+					<label for="state">State</label> 
+					<?php echo $html->selectTag('Location/state',  array(
+					'NY' => 'New York'), 'NY', null, null, false, false); ?> 
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="name">Zip Code</label><br>
+                    <?php echo $html->input('Location/zip_code', array('class'=>'text','maxlength'=>'5')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="name">Neighborhood</label><br>
+					<select name="hood">
+						<option <?php if ($resuser['hood']=="Choose Neighborhood"){echo "selected='yes'";}?> value ="Choose Neighborhood">Choose Neighborhood</option>
+						<optgroup label="Bronx">
+							<option <?php if ($resuser['hood']=="Coop City"){echo "selected='yes'";}?> value ="Coop City">Coop City</option>
+							<option <?php if ($resuser['hood']=="Fordham"){echo "selected='yes'";}?> value ="Fordham">Fordham</option>
+							<option <?php if ($resuser['hood']=="High Bridge"){echo "selected='yes'";}?> value ="High Bridge">High Bridge</option>
+							<option <?php if ($resuser['hood']=="Kingsbridge"){echo "selected='yes'";}?> value ="Kingsbridge">Kingsbridge</option>
+							<option <?php if ($resuser['hood']=="Melrose"){echo "selected='yes'";}?> value ="Melrose">Melrose</option>
+							<option <?php if ($resuser['hood']=="Morris Heights"){echo "selected='yes'";}?> value ="Morris Heights">Morris Heights</option>
+							<option <?php if ($resuser['hood']=="Mott Haven"){echo "selected='yes'";}?> value ="Mott Haven">Mott Haven</option>
+							<option <?php if ($resuser['hood']=="Norwood"){echo "selected='yes'";}?> value ="Norwood">Norwood</option>
+							<option <?php if ($resuser['hood']=="Riverdale"){echo "selected='yes'";}?> value ="Riverdale">Riverdale</option>
+							<option <?php if ($resuser['hood']=="Soundview"){echo "selected='yes'";}?> value ="Soundview">Soundview</option>
+							<option <?php if ($resuser['hood']=="Tremont"){echo "selected='yes'";}?> value ="Tremont">Tremont</option>
+							<option <?php if ($resuser['hood']=="Other Bronx"){echo "selected='yes'";}?> value ="Other Bronx">Other Bronx</option>
+						</optgroup>
+						<optgroup label="Brooklyn">
+							<option <?php if ($resuser['hood']=="Bay Ridge"){echo "selected='yes'";}?> value ="Bay Ridge">Bay Ridge</option>
+							<option <?php if ($resuser['hood']=="Bedford-Stuyvasant"){echo "selected='yes'";}?> value ="Bedford-Stuyvasant">Bedford-Stuyvasant</option>
+							<option <?php if ($resuser['hood']=="Bensonhurst"){echo "selected='yes'";}?> value ="Bensonhurst">Bensonhurst</option>
+							<option <?php if ($resuser['hood']=="Brighton"){echo "selected='yes'";}?> value ="Brighton">Brighton</option>
+							<option <?php if ($resuser['hood']=="Brooklyn Heights"){echo "selected='yes'";}?> value ="Brooklyn Heights">Brooklyn Heights</option>
+							<option <?php if ($resuser['hood']=="Bushwick"){echo "selected='yes'";}?> value ="Bushwick">Bushwick</option>
+							<option <?php if ($resuser['hood']=="Carroll Gardens"){echo "selected='yes'";}?> value ="Carroll Gardens">Carroll Gardens</option>
+							<option <?php if ($resuser['hood']=="Cobble Hill"){echo "selected='yes'";}?> value ="Cobble Hill">Cobble Hill</option>
+							<option <?php if ($resuser['hood']=="Coney Island"){echo "selected='yes'";}?> value ="Coney Island">Coney Island</option>
+							<option <?php if ($resuser['hood']=="Crown Heights"){echo "selected='yes'";}?> value ="Crown Heights">Crown Heights</option>
+							<option <?php if ($resuser['hood']=="Downtown Brooklyn"){echo "selected='yes'";}?> value ="Downtown Brooklyn">Downtown Brooklyn</option>
+							<option <?php if ($resuser['hood']=="Dumbo"){echo "selected='yes'";}?> value ="Dumbo">Dumbo</option>
+							<option <?php if ($resuser['hood']=="East New York"){echo "selected='yes'";}?> value ="East New York">East New York</option>
+							<option <?php if ($resuser['hood']=="Flatbush"){echo "selected='yes'";}?> value ="Flatbush">Flatbush</option>
+							<option <?php if ($resuser['hood']=="Fort Greene"){echo "selected='yes'";}?> value ="Fort Greene">Fort Greene</option>
+							<option <?php if ($resuser['hood']=="Fort Hamilton"){echo "selected='yes'";}?> value ="Fort Hamilton">Fort Hamilton</option>
+							<option <?php if ($resuser['hood']=="Greenpoint"){echo "selected='yes'";}?> value ="Greenpoint">Greenpoint</option>
+							<option <?php if ($resuser['hood']=="Midwood"){echo "selected='yes'";}?> value ="Midwood">Midwood</option>
+							<option <?php if ($resuser['hood']=="Park Slope"){echo "selected='yes'";}?> value ="Park Slope">Park Slope</option>
+							<option <?php if ($resuser['hood']=="Prospect Heights"){echo "selected='yes'";}?> value ="Prospect Heights">Prospect Heights</option>
+							<option <?php if ($resuser['hood']=="Red Hook"){echo "selected='yes'";}?> value ="Red Hook">Red Hook</option>
+							<option <?php if ($resuser['hood']=="Ridgewood"){echo "selected='yes'";}?> value ="Ridgewood">Ridgewood</option>
+							<option <?php if ($resuser['hood']=="Sunset Park"){echo "selected='yes'";}?> value ="Sunset Park">Sunset Park</option>
+							<option <?php if ($resuser['hood']=="Williamsburg"){echo "selected='yes'";}?> value ="Williamsburg">Williamsburg</option>
+							<option <?php if ($resuser['hood']=="Other Brooklyn"){echo "selected='yes'";}?> value ="Other Brooklyn">Other Brooklyn</option>
+						</optgroup>
+						<optgroup label="Manhattan">
+							<option <?php if ($resuser['hood']=="Chelsea"){echo "selected='yes'";}?> value ="Chelsea">Chelsea</option>
+							<option <?php if ($resuser['hood']=="Chinatown/Little Italy"){echo "selected='yes'";}?> value ="Chinatown-Little Italy">Chinatown-Little Italy</option>
+							<option <?php if ($resuser['hood']=="Clinton/Hell's Kitchen"){echo "selected='yes'";}?> value ="Clinton-Hells Kitchen">Clinton-Hells Kitchen</option>
+							<option <?php if ($resuser['hood']=="Columbia University"){echo "selected='yes'";}?> value ="Columbia University">Columbia University</option>
+							<option <?php if ($resuser['hood']=="East Harlem"){echo "selected='yes'";}?> value ="East Harlem">East Harlem</option>
+							<option <?php if ($resuser['hood']=="East Village"){echo "selected='yes'";}?> value ="East Village">East Village</option>
+							<option <?php if ($resuser['hood']=="Financial District"){echo "selected='yes'";}?> value ="Financial District">Financial District</option>
+							<option <?php if ($resuser['hood']=="Gramercy/Flatiron"){echo "selected='yes'";}?> value ="Gramercy-Flatiron">Gramercy-Flatiron</option>
+							<option <?php if ($resuser['hood']=="Greenwich Village"){echo "selected='yes'";}?> value ="Greenwich Village">Greenwich Village</option>
+							<option <?php if ($resuser['hood']=="Harlem"){echo "selected='yes'";}?> value ="Harlem">Harlem</option>
+							<option <?php if ($resuser['hood']=="Inwood"){echo "selected='yes'";}?> value ="Inwood">Inwood</option>
+							<option <?php if ($resuser['hood']=="Lower East Side"){echo "selected='yes'";}?> value ="Lower East Side">Lower East Side</option>
+							<option <?php if ($resuser['hood']=="Midtown East"){echo "selected='yes'";}?> value ="Midtown East">Midtown East</option>
+							<option <?php if ($resuser['hood']=="Midtown West"){echo "selected='yes'";}?> value ="Midtown West">Midtown West</option>
+							<option <?php if ($resuser['hood']=="Murray Hill"){echo "selected='yes'";}?> value ="Murray Hill">Murray Hill</option>
+							<option <?php if ($resuser['hood']=="Soho"){echo "selected='yes'";}?> value ="Soho">Soho</option>
+							<option <?php if ($resuser['hood']=="Tribeca"){echo "selected='yes'";}?> value ="Tribeca">Tribeca</option>
+							<option <?php if ($resuser['hood']=="Upper East Side"){echo "selected='yes'";}?> value ="Upper East Side">Upper East Side</option>
+							<option <?php if ($resuser['hood']=="Upper West Side"){echo "selected='yes'";}?> value ="Upper West Side">Upper West Side</option>
+							<option <?php if ($resuser['hood']=="Washington Heights"){echo "selected='yes'";}?> value ="Washington Heights">Washington Heights</option>
+							<option <?php if ($resuser['hood']=="West Village"){echo "selected='yes'";}?> value ="West Village">West Village</option>
+							<option <?php if ($resuser['hood']=="Other Manhattan"){echo "selected='yes'";}?> value ="Other Manhattan">Other Manhattan</option>
+						</optgroup>
+						<optgroup label="Queens">
+							<option <?php if ($resuser['hood']=="Astoria"){echo "selected='yes'";}?> value ="Astoria">Astoria</option>
+							<option <?php if ($resuser['hood']=="Bayside"){echo "selected='yes'";}?> value ="Bayside">Bayside</option>
+							<option <?php if ($resuser['hood']=="College Point"){echo "selected='yes'";}?> value ="College Point">College Point</option>
+							<option <?php if ($resuser['hood']=="Elmhurst"){echo "selected='yes'";}?> value ="Elmhurst">Elmhurst</option>
+							<option <?php if ($resuser['hood']=="Far Rockaway"){echo "selected='yes'";}?> value ="Far Rockaway">Far Rockaway</option>
+							<option <?php if ($resuser['hood']=="Flushing"){echo "selected='yes'";}?> value ="Flushing">Flushing</option>
+							<option <?php if ($resuser['hood']=="Forest Hills"){echo "selected='yes'";}?> value ="Forest Hills">Forest Hills</option>
+							<option <?php if ($resuser['hood']=="Jackson Heights"){echo "selected='yes'";}?> value ="Jackson Heights">Jackson Heights</option>
+							<option <?php if ($resuser['hood']=="Jamaica"){echo "selected='yes'";}?> value ="Jamaica">Jamaica</option>
+							<option <?php if ($resuser['hood']=="Kensington"){echo "selected='yes'";}?> value ="Kensington">Kensington</option>
+							<option <?php if ($resuser['hood']=="Kew Gardens"){echo "selected='yes'";}?> value ="Kew Gardens">Kew Gardens</option>
+							<option <?php if ($resuser['hood']=="Long Island City"){echo "selected='yes'";}?> value ="Long Island City">Long Island City</option>
+							<option <?php if ($resuser['hood']=="Middle Village"){echo "selected='yes'";}?> value ="Middle Village">Middle Village</option>
+							<option <?php if ($resuser['hood']=="Rego Park"){echo "selected='yes'";}?> value ="Rego Park">Rego Park</option>
+							<option <?php if ($resuser['hood']=="Sunnyside"){echo "selected='yes'";}?> value ="Sunnyside">Sunnyside</option>
+							<option <?php if ($resuser['hood']=="Woodside"){echo "selected='yes'";}?> value ="Woodside">Woodside</option>
+							<option <?php if ($resuser['hood']=="Other Queens"){echo "selected='yes'";}?> value ="Other Queens">Other Queens</option>
+						</optgroup>
+						<optgroup label="Staten Island">
+							<option <?php if ($resuser['hood']=="Mid-Island"){echo "selected='yes'";}?> value ="Mid-Island">Mid-Island</option>
+							<option <?php if ($resuser['hood']=="Park Hill"){echo "selected='yes'";}?> value ="Park Hill">Park Hill</option>
+							<option <?php if ($resuser['hood']=="Saint George"){echo "selected='yes'";}?> value ="Saint George">Saint George</option>
+							<option <?php if ($resuser['hood']=="South Shore"){echo "selected='yes'";}?> value ="South Shore">South Shore</option>
+							<option <?php if ($resuser['hood']=="Stapleton"){echo "selected='yes'";}?> value ="Stapleton">Stapleton</option>
+							<option <?php if ($resuser['hood']=="Tompkinsville"){echo "selected='yes'";}?> value ="Tompkinsville">Tompkinsville</option>
+							<option <?php if ($resuser['hood']=="Other Staten Island"){echo "selected='yes'";}?> value ="Other Staten Island">Other Staten Island</option>
+						</optgroup>
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Location Description</label><br>
+					<?php echo $html->textarea('Location/description', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Give a brief description of your location.</small>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Contact Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Location Phone</label><br>
+					<?php echo $html->input('Location/phpri1', array('class'=>'ph3','size'=>'3','maxlength'=>'3','value'=>substr($resuser['ph_primary'],0,3))).'-'.$html->input('Location/phpri2', array('class'=>'ph3','size' => '3','maxlength'=>'3','value'=>substr($resuser['ph_primary'],3,3))).'-'.$html->input('Location/phpri3', array('class'=>'ph4','size' => '4','maxlength'=>'4','value'=>substr($resuser['ph_primary'],6,4))) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Will you be on-site on June 21st?</label><br>
+					<?php echo $html->radio('Location/onsite', array('1'=>'Yes','0'=>'No')) ?><br>
+					<small>If no, include the contact information for the person who will be onsite.</small>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label class="opt">Contact's Name</label><br>
+					<?php echo $html->input('Location/onsite_name', array('class'=>'text')) ?>
+				</td>
+				<td style=text-align:left>
+					<label class="opt">Contact's Number</label><br>
+					<?php echo $html->input('Location/photh1', array('class'=>'ph3','size'=>'3','maxlength'=>'3','value'=>substr($resuser['onsite_phone'],0,3))).'-'.$html->input('Location/photh2', array('class'=>'ph3','size' => '3','maxlength'=>'3','value'=>substr($resuser['onsite_phone'],3,3))).'-'.$html->input('Location/photh3', array('class'=>'ph4','size' => '4','maxlength'=>'4','value'=>substr($resuser['onsite_phone'],6,4))) ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Location Preferences</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label for="genres" class="opt">Genre(s) Wanted</label><br>
+					<?php echo $html->selectTag('Location/genre1', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+					<?php echo $html->selectTag('Location/genre2', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+					<?php echo $html->selectTag('Location/genre3', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2"></td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label class="opt">Available Times</label><br>
+					<?php echo $html->checkboxTag('Location/time_midday', 'Midday', array('value'=>'1') ,'').' <small>Midday (11am - 2pm)</small>' ?><br>
+					<?php echo $html->checkboxTag('Location/time_afternoon', 'Afternoon', array('value'=>'1') ,'').' <small>Afternoon (2pm - 4pm)</small>' ?><br>
+					<?php echo $html->checkboxTag('Location/time_lateafter', 'Late Afternoon', array('value'=>'1') ,'').' <small>Late Afternoon (4pm -  6pm)</small>' ?><br>
+					<?php echo $html->checkboxTag('Location/time_evening', 'Evening', array('value'=>'1') ,'').' <small>Evening (6pm - 10pm)</small>' ?><br>
+				</td>			
+				<td style=text-align:left class="toop">
+					<label>Electricity Requirements</label><br>
+					<?php echo $html->radio('Location/electricity', array('0'=>'<small>Can provide electricity</small>','1'=>'<small>Artist must provide electricty</small>','2'=>'<small>No electricity may be used</small>'), '<br style="clear:both;"/>') ?> 
+					<?php echo $html->tagErrorMsg('Location/electricity', 'Invalid') ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<small>By checking one (or more) of the Available Times boxes, you are making yourself available to artists/locations who wish to contact you about a performance.</small>
+				</td>
+			</tr>			
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Will you put up free MMNY posters at your location</label><br>
+					<?php echo $html->radio('Location/poster', array('1'=>'Yes','0'=>'No')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Other Promotion:</label><br>
+					<?php echo $html->textarea('Location/promote', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>What you will do to promote this event.</small>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Please answer the following:</label><br><br>
+					<label>Is the location within 500 feet of a school, house of worship, hospital, or similar institution?</label><br>
+					<?php echo $html->radio('Location/surrounding', array('1'=>'Yes','0'=>'No')) ?><br>
+					<small>If yes, and that instituition is not presenting this concert, NO amplification will be permitted at this location.</small>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>If it rains, can musicians set up in your lobby, storefront, foyer, etc?</label><br>
+					<?php echo $html->radio('Location/rain', array('1'=>'Yes','0'=>'No','2'=>'Other')) ?><br>
+					<small>If other, please explain.</small><br>
+					<?php echo $html->textarea('Location/rain_other', array('cols' => '60', 'rows' => '5')) ?>
+					<?php echo $html->hiddenTag('Location/user_id') ?>
+					<?php echo $html->hiddenTag('Location/blues') ?>
+					<?php echo $html->hiddenTag('Location/cabaret') ?>
+					<?php echo $html->hiddenTag('Location/classical') ?>
+					<?php echo $html->hiddenTag('Location/country') ?>
+					<?php echo $html->hiddenTag('Location/electronic') ?>
+					<?php echo $html->hiddenTag('Location/experimental') ?>
+					<?php echo $html->hiddenTag('Location/hiphop') ?>
+					<?php echo $html->hiddenTag('Location/jazz') ?>
+					<?php echo $html->hiddenTag('Location/kids') ?>
+					<?php echo $html->hiddenTag('Location/latin') ?>
+					<?php echo $html->hiddenTag('Location/opera') ?>
+					<?php echo $html->hiddenTag('Location/pop') ?>
+					<?php echo $html->hiddenTag('Location/reggae') ?>
+					<?php echo $html->hiddenTag('Location/religious') ?>										
+					<?php echo $html->hiddenTag('Location/rock') ?>
+					<?php echo $html->hiddenTag('Location/soul') ?>
+					<?php echo $html->hiddenTag('Location/standards') ?>
+					<?php echo $html->hiddenTag('Location/world') ?>
+					<?php echo $html->hiddenTag('Location/other') ?>
+					<?php echo $html->hiddenTag('Location/hood') ?>
+					<?php echo $html->hiddenTag('Location/ph_primary') ?>
+					<?php echo $html->hiddenTag('Location/onsite_phone') ?>
+				</td>
+			</tr>			
+		</tbody>
+	</table>			
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button positive">
+   		<?php echo $html->image('icons/accept.png') ?> Submit
+   	</button>
+   	<a class="button negative" href="../">
+   		<?php echo $html->image('icons/cancel.png') ?> Cancel
+   	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+	<div class="notes">
+        <h4><b>Location Information</b></h4>
+        <p>Your Location name is required.</p>
+        <p>Please enter your website URL as stated below the fields.</p>
+        <p>Please enter the address of your location, NOT your mailing address. If your space does not have a numbered street address, please enter the nearest street address.</p>
+        <p class="last">Give a brief description of your location: the size of the performance space, special requirements, etc. Except in case of rain, all performances must take place outside.</p>
+      </div>
+      <br>
+      <br>
+	<div class="notes">
+        <h4><b>Contact Information</b></h4>
+        <p>Please enter the contact information for this location.</p>
+        <p>This information is only used to coordinate the performance(s) hosted at your location.</p>
+        <p class="last">If you will not be on location the day of the performance please leave a contact who will be on-site.</p>
+      </div>
+      <br>
+      <br>      
+	<div class="notes">
+		<h4><b>Location Preferences</b></h4>
+		<p>Please select up to three genres of music that you're interested in hosting. If you do not select any genres, the Other genre will be listed by default.</p>
+		<p>By checking one (or more) of the Available Times boxes, you are making yourself available to artists/locations who wish to contact you about a performance.</p>
+		<p class="last">If your location is within 500 feet of a school, house of worship, hospital, or similar institution and that institution is NOT presenting this concert then NO amplification will be permitted at this location.</p>
+	</div>
+</div>
+</div>

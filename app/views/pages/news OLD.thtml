@@ -1,0 +1,88 @@
+<?php $this->pageTitle = 'In the News'; ?> 
+<?php $this->layout = 'news'; ?>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/mexicanfolk.jpg',array('class'=>'floatRight','width'=>'250'));?>
+<h2>MMNY In the News</h2>
+<h3>Television</h3>
+<p>
+	<b>NY1</b><br>
+	<a href="http://www.ny1.com/ny1/content/index.jsp?&amp;aid=71011&amp;search_result=1&amp;stid=237" target="new">"Outdoor Concerts Throughout the City Mark the Beginning of Summer"</a>, Kristen Shaughnessy, June 15, 2007<br>
+	
+	<b>CBS 2</b><br>
+	<a href="http://wcbstv.com/video/?id=100802@wcbs.dayport.com&amp;cid=48" target="new">"Make Music New York"</a>, News at 5, June 21, 2007<br>
+
+	<b>TF1 France</b><br>
+	<a href="http://tf1.lci.fr/infos/jt/0,,3474930,00-fete-musique-traverse-atlantique-.html" target="new">"La Fete de la Musique traverse l'Atlantique"</a>, 8 o'clock News with Claire Chazal, June 22, 2007
+</p>
+<h3>Radio</h3>
+<p>
+	<b>WNYC Radio</b><br>
+	<a href="http://www.wnyc.org/shows/bl/episodes/2007/06/21/segments/80943" target="new">"All Music All the Long Day"</a>, The Brian Lehrer Show, June 21, 2007<br>
+	<a href="http://www.wnyc.org/shows/soundcheck/episodes/2007/05/21#segment79299" target="new">"Taking it to the Streets"</a>, Soundcheck with John Schaefer, May 21, 2007<br>
+
+	<b>1010 WINS</b><br>
+	<a href="http://www.1010wins.com/pages/600160.php?contentType=4&amp;contentId=626126" target="new">"Welcome Summer &amp; Make Music in Manhattan"</a>, June 21, 2007
+</p>
+<h3>Citywide Press</h3>
+<p>
+	<b>New York Times</b><br>
+	<a href="http://www.nytimes.com/2007/06/23/arts/music/23make.html?_r=1&amp;ref=arts&amp;oref=slogin" target="new">"All-Day Festival of Sounds, From African to Operatic"</a>, by Vivien Schweitzer, June 23, 2007<br>
+	<a href="http://query.nytimes.com/gst/fullpage.html?res=9E00E0DA1330F93BA15750C0A9619C8B63" target="new">"New York to Greet Summer With Music"</a>, by Ashley Parker, March 28, 2007<br>
+
+	<b>New Yorker</b><br>
+	<a href="http://www.makemusicny.org/MMNYnewyorker.pdf" target="new">"On the Horizon: East Side, West Side"</a>, May 28, 2007<br>
+
+	<b>Crain's New York Business</b><br>
+	<a href="http://www.newyorkbusiness.com/apps/pbcs.dll/article?AID=/20070326/FREE/70326003/1044/newsletter01" target="new">"City Readies for Daylong Music Festival"</a>, by Miriam Kreinin Souccar, March 26, 2007<br>
+
+	<b>New York Post</b><br>
+	<a href="http://www.nypost.com/seven/06202007/entertainment/theater/citywide_songs_theater_barbara_hoffman.htm" target="new">"Citywide Songs"</a>, by Barbara Hoffman, June 20, 2007<br>
+
+	<b>New York Sun</b><br>
+	<a href="http://www.nysun.com/article/56812" target="new">"Impresario for a Day of Hundreds of City Concerts"</a>, by Bradley Hope, June 19, 2007<br>
+	<a href="http://www.nysun.com/article/57149" target="new">"Free and Easy, Make Music N.Y. Fills City With Song"</a>, by Bradley Hope, June 22, 2007<br>
+
+	<b>amNewYork</b><br>
+	<a href="http://media.timeoutnewyork.com/static_content/downloads/650/mmny_amny.pdf" target="new">"Citywide music fest ushers in summer"</a>, Justin R. Silverman, June 21, 2007<br>
+	<a href="/newyork/mmny/images/mmny_amny2.jpg" target="new">"City to Host Outdoor Music Fest"</a>, by Justin Rocket Silverman, March 2-4, 2007<br>
+
+	<b>New York Press</b><br>
+	<a href="http://www.nypress.com/blogx/display_blog.cfm?bid=56711706" target="new">"Make Music New York"</a>, by Jonny Leather, June 21, 2007<br>
+
+	<b>Gothamist</b><br>
+	<a href="http://gothamist.com/2007/06/19/make_music.php" target="new">"Over 560 Free Performances This Thursday"</a>, by Jen Carlson, June 19, 2007
+</p>
+
+<h3>Local Press</h3>
+<p>
+	<b>Times Leger (Queens)</b><br>
+	<a href="http://www.timesledger.com/site/news.cfm?newsid=18475018&amp;BRD=2676&amp;PAG=461&amp;dept_id=551068&amp;rfi=6" target="new">"Global music fest hits Queens in June"</a>, by Craig Giammona, June 14, 2007<br>
+	<a href="http://www.makemusicny.org/Timesledger.jpg" target="new">"Woodside harmonica wiz wows Shea concert crowd"</a>, by Howard Koplowitz, June 28, 2007<br>
+
+<!--
+	<b>Courier Life (Brooklyn)</b><br>
+	<a href="http://www.courierlife.net/site/news.cfm?newsid=18478602&amp;BRD=2384&amp;PAG=461&amp;dept_id=576386&amp;rfi=" target="new">"Metropolitan Opera throws open its doors for festival"</a>, June 14, 2007<br>
+
+	<b>24/7 (Brooklyn)</b><br>
+	<a href="http://www.courierlife.net/site/news.cfm?newsid=18478601&amp;BRD=2384&amp;PAG=461&amp;dept_id=553358&amp;rfi=6" target="new">"Get set for the biggest block party the Big Apple has ever seen"</a>, by Joe Maniscalco, June 14, 2007</p>
+-->
+</p>
+
+<h3>International/Other Press</h3>
+<p>
+	<b>Agence France Presse</b><br>
+	<a href="http://news.sawf.org/Entertainment/38892.aspx" target="new">"Jack Lang uses Mets stadium to launch Fete de la Musique"</a>, June 21, 2007<br>
+	<a href="http://rawstory.com/news/afp/France_celebrates_summer_with_all_n_06212007.html" target="new">"France celebrates Summer with all night music-fest"</a>, June 22, 2007<br>
+<!--
+	<a href="http://musique.france3.fr/actu/30522173-fr.php" target="new">"Une F&#234;te de la musique &#224; New York le 21 juin"</a>, Catherine Hours, May 5, 2007<br>-->
+
+	<b>Voila New York</b><br>
+	<a href="http://www.voilanewyork.com/008_003_010.html" target="new">"New York va c&#233;l&#232;brer la F&#234;te de la Musique en 2007"</a>, Brigitte Tillet, May 5, 2007<br>
+
+	<b>French Morning</b><br>
+	<a href="http://www.frenchmorning.com/ny/spip.php?article209" target="new">"La f&#234;te de la musique d&#233;barque &#224; New York"</a>, by Emmanuel Saint-Martin, May 3, 2007<br>
+
+	<b>Playbill Arts</b><br>
+	<a href="http://www.playbillarts.com/news/article/6516.html" target="new">"Metropolitan Opera and New York Philharmonic Members to Perform at Inaugural 'Make Music New York' Festival"</a>, by Vivien Schweitzer, May 18, 2007<br>
+	<a href="http://www.playbillarts.com/news/article/6219.html" target="new">"New York to Launch Version of Paris's All-Night Music Fest on Summer Solstice"</a>, by Vivien Schweitzer, March 26, 2007
+</p>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/ebe.jpg',array('class'=>'floatLeft','height'=>'200'));?><?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/sacredharp2.jpg',array('class'=>'floatRight','height'=>'200'));?>

@@ -1,0 +1,59 @@
+<h3>My Confirmed Performances</h3>
+<br>
+ <!--**********USER INFORMATION -FOR ALL USERS**********-->
+ <?php echo $this->element('usernav'); ?>
+
+<fieldset>
+<?php if ($confirmed_locations) {?>
+<table class="inav" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td colspan="4" style=text-align:left><h3>Confirmed Performances</h3>These are Performances that have been approved by You, the Artist, and Make Music New York.</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		<td></td>
+		<td><b>Artist</b></td>
+		<td><b>Location</b></td>
+		<td><b>Time Scheduled</b></td>
+		<td><b>Concert Description</b></td>
+	</tr>                                
+	<!-- <?php print_r($your_locations);?> -->
+	<?php foreach ($confirmed_locations as $key=>$conall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td><?php echo $html->link('<small>View</small>','/performances/view/'.$conall['Performance']['id'],"style='float: left'",NULL,false) ?></td>
+			<td><?php echo $html->link($conall['Artist']['groupname'],'/artists/view/'.$conall['Artist']['id']) ?></td>
+			<td><?php echo $html->link($Locations[$conall['Performance']['location_id']],'/locations/view/'.$conall['Performance']['location_id']) ?></td>
+			<td><small><?php echo $conall['Performance']['start_time'].nl2br("\n-\n").$conall['Performance']['end_time']?></small></td>
+			<td><small><?php echo $conall['Performance']['description'] ?></small></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php } if ($confirmed_artists){?>
+<table class="inav" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td colspan="4" style=text-align:left><h3>Confirmed Performances</h3>These are Performances that have been approved by You, the Location, and Make Music New York.</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		<td></td>
+		<td><b>Location</b></td>
+		<td><b>Time Scheduled</b></td>
+		<td><b>Concert Description</b></td>
+	</tr>
+	<?php foreach ($confirmed_artists as $key=>$conall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td><?php echo $html->link('<small>View</small>','/performances/view/'.$conall['Performance']['id'],"style='float: left'",NULL,false) ?></td>
+			<td><?php echo $html->link($conall['Location']['locationname'],'/locations/view/'.$conall['Location']['id']) ?></td>
+			<td><small><?php echo $conall['Performance']['start_time'].nl2br("\n-\n").$conall['Performance']['end_time']?></small></td>
+			<td><small><?php echo $conall['Performance']['description'] ?></small></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php } ?>
+</fieldset>

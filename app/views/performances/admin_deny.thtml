@@ -1,0 +1,578 @@
+<h2>Deny a Performance Request</h2>
+<?php if ($Artist['Artist']['electricity'] == '0')
+	{
+		if ($Location['Location']['electricity'] == '1')
+		{
+			echo "<div class='notice'>This Artist requires electricty from a Location.<br>This Location does not provide electricity.</div><br>";
+		}
+		if ($Location['Location']['electricity'] == '2')
+		{
+			echo "<div class='notice'>This Artist requires electricity from a Location.<br>No electricity can be used at this Location.</div><br>";
+		}
+	}
+?>
+<fieldset>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td colspan="2" style=text-align:left><h3><?php if ($Performance['Performance']['artist_confirmed'] == "1" && $Performance['Performance']['location_confirmed'] == "1" && $Performance['Performance']['admin_confirmed'] == "1"){echo "Confirmed";}else{ echo "Requested";}?> Performance Information</h3><?php echo $Performance['Performance']['start_time']." - ".$Performance['Performance']['end_time'];?><?php if ($Performance['Performance']['artist_confirmed'] == "1" && $Performance['Performance']['location_confirmed'] == "1" && $Performance['Performance']['admin_confirmed'] == "1"){echo "<br>".$Performance['Performance']['description'];} ?></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="altRow">
+			<td>
+				<strong><?php if ($Performance['Performance']['artist_confirmed'] == "1"){echo "Confirmed";}else{ echo "Requested";}?> Artist</strong><h3><?php echo $html->link($Artist['Artist']['groupname'],'/artists/view/'.$Artist['Artist']['id']);?></h3>
+			</td>
+			<td>
+				<strong><?php if ($Performance['Performance']['location_confirmed'] == "1"){echo "Confirmed";}else{ echo "Requested";}?> Location</strong><h3><?php echo $html->link($Location['Location']['locationname'],'/locations/view/'.$Location['Location']['id']);?></h3>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>Genre(s)</b><br><?php
+	if ($Artist['Artist']['blues'] == '1')
+	{
+		echo $html->link('Blues','/artists/sort/genres/blues');
+ 		if ($Artist['Artist']['cabaret'] == '1'){echo nl2br("\n").$html->link('Cabaret','/artists/sort/genres/cabaret');} 			
+  		if ($Artist['Artist']['classical'] == '1'){echo nl2br("\n").$html->link('Classical','/artists/sort/genres/classical');}			
+ 		if ($Artist['Artist']['country'] == '1'){echo nl2br("\n").$html->link('Country','/artists/sort/genres/country');	} 			
+  		if ($Artist['Artist']['electronic'] == '1'){echo nl2br("\n").$html->link('Electronic','/artists/sort/genres/electronic');} 
+ 		if ($Artist['Artist']['experimental'] == '1'){echo nl2br("\n").$html->link('Experimental','/artists/sort/genres/experimental');} 			
+  		if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 		if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 		if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 		if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  		if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 		if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  		if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 		if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  		if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 		if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  		if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  		if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 		if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  		if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');}  				 	 			}
+ 		 if ($Artist['Artist']['blues'] == '0' &&
+ 		 	$Artist['Artist']['cabaret'] == '1')	
+ 		 	{echo $html->link('Cabaret','/artists/sort/genres/cabaret');
+ 		 	if ($Artist['Artist']['classical'] == '1'){echo nl2br("\n").$html->link('Classical','/artists/sort/genres/classical');}		
+ 			if ($Artist['Artist']['country'] == '1'){echo nl2br("\n").$html->link('Country','/artists/sort/genres/country');	} 			
+  			if ($Artist['Artist']['electronic'] == '1'){echo nl2br("\n").$html->link('Electronic','/artists/sort/genres/electronic');} 
+ 			if ($Artist['Artist']['experimental'] == '1'){echo nl2br("\n").$html->link('Experimental','/artists/sort/genres/experimental');} 			
+  			if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '1')
+ 			{echo $html->link('Classical','/artists/sort/genres/classical');
+ 			if ($Artist['Artist']['country'] == '1'){echo nl2br("\n").$html->link('Country','/artists/sort/genres/country');	} 			
+  			if ($Artist['Artist']['electronic'] == '1'){echo nl2br("\n").$html->link('Electronic','/artists/sort/genres/electronic');} 
+ 			if ($Artist['Artist']['experimental'] == '1'){echo nl2br("\n").$html->link('Experimental','/artists/sort/genres/experimental');} 			
+  			if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '1')
+			{echo $html->link('Country','/artists/sort/genres/country');
+  			if ($Artist['Artist']['electronic'] == '1'){echo nl2br("\n").$html->link('Electronic','/artists/sort/genres/electronic');} 
+ 			if ($Artist['Artist']['experimental'] == '1'){echo nl2br("\n").$html->link('Experimental','/artists/sort/genres/experimental');} 			
+  			if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		 
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '1')
+			{echo $html->link('Electronic','/artists/sort/genres/electronic');
+ 			if ($Artist['Artist']['experimental'] == '1'){echo nl2br("\n").$html->link('Experimental','/artists/sort/genres/experimental');} 			
+  			if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		 
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '0' &&
+ 			$Artist['Artist']['experimental'] == '1')
+			{echo $html->link('Experimental','/artists/sort/genres/experimental');
+  			if ($Artist['Artist']['folk'] == '1'){echo nl2br("\n").$html->link('Folk','/artists/sort/genres/folk');} 			
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '0' &&
+ 			$Artist['Artist']['experimental'] == '0' &&
+ 			$Artist['Artist']['folk'] == '1')
+			{echo $html->link('Folk','/artists/sort/genres/folk');
+ 			if ($Artist['Artist']['hiphop'] == '1'){echo nl2br("\n").$html->link('Hip-Hop','/artists/sort/genres/hiphop');}
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '0' &&
+ 			$Artist['Artist']['experimental'] == '0' &&
+ 			$Artist['Artist']['folk'] == '0' &&
+ 			$Artist['Artist']['hiphop'] == '1')
+			{echo $html->link('Hip-Hop','/artists/sort/genres/hiphop');
+ 			if ($Artist['Artist']['jazz'] == '1'){echo nl2br("\n").$html->link('Jazz','/artists/sort/genres/jazz');}
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '0' &&
+ 			$Artist['Artist']['experimental'] == '0' &&
+ 			$Artist['Artist']['folk'] == '0' &&
+ 			$Artist['Artist']['hiphop'] == '0' &&
+ 			$Artist['Artist']['jazz'] == '1')
+			{echo $html->link('Jazz','/artists/sort/genres/jazz');
+ 			if ($Artist['Artist']['kids'] == '1'){echo nl2br("\n").$html->link('Kids','/artists/sort/genres/kids');} 			
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 			$Artist['Artist']['cabaret'] == '0' &&
+ 			$Artist['Artist']['classical'] == '0' &&
+ 			$Artist['Artist']['country'] == '0' &&
+ 			$Artist['Artist']['electronic'] == '0' &&
+ 			$Artist['Artist']['experimental'] == '0' &&
+ 			$Artist['Artist']['folk'] == '0' &&
+ 			$Artist['Artist']['hiphop'] == '0' &&
+ 			$Artist['Artist']['jazz'] == '0' &&
+ 			$Artist['Artist']['kids'] == '1')
+			{echo $html->link('Kids','/artists/sort/genres/kids');
+  			if ($Artist['Artist']['latin'] == '1'){echo nl2br("\n").$html->link('Latin','/artists/sort/genres/latin');} 			
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		 $Artist['Artist']['experimental'] == '0' &&
+ 		 $Artist['Artist']['folk'] == '0' &&
+ 		 $Artist['Artist']['hiphop'] == '0' &&
+ 		 $Artist['Artist']['jazz'] == '0' &&
+ 		 $Artist['Artist']['kids'] == '0' &&
+ 		 $Artist['Artist']['latin'] == '1')
+			{echo $html->link('Latin','/artists/sort/genres/latin');
+ 			if ($Artist['Artist']['opera'] == '1'){echo nl2br("\n").$html->link('Opera','/artists/sort/genres/opera');} 			
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '1')
+			{echo $html->link('Opera','/artists/sort/genres/opera');
+  			if ($Artist['Artist']['pop'] == '1'){echo nl2br("\n").$html->link('Pop','/artists/sort/genres/pop');} 
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '1')
+			{echo $html->link('Pop','/artists/sort/genres/pop');
+ 			if ($Artist['Artist']['reggae'] == '1'){echo nl2br("\n").$html->link('Reggae','/artists/sort/genres/reggae');} 			
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '1')
+			{echo $html->link('Reggae','/artists/sort/genres/reggae');
+  			if ($Artist['Artist']['religious'] == '1'){echo nl2br("\n").$html->link('Religious','/artists/sort/genres/religious');} 			
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '1')
+			{echo $html->link('Religious','/artists/sort/genres/religious');
+ 			if ($Artist['Artist']['rock'] == '1'){echo nl2br("\n").$html->link('Rock','/artists/sort/genres/rock');}			
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '0' &&
+ 		$Artist['Artist']['rock'] == '1')
+			{echo $html->link('Rock','/artists/sort/genres/rock');
+  			if ($Artist['Artist']['soul'] == '1'){echo nl2br("\n").$html->link('Soul','/artists/sort/genres/soul');}
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '0' &&
+ 		$Artist['Artist']['rock'] == '0' &&
+ 		$Artist['Artist']['soul'] == '1')
+			{echo $html->link('Soul','/artists/sort/genres/soul');
+  			if ($Artist['Artist']['standards'] == '1'){echo nl2br("\n").$html->link('Standards','/artists/sort/genres/standards');} 			
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '0' &&
+ 		$Artist['Artist']['rock'] == '0' &&
+ 		$Artist['Artist']['soul'] == '0' &&
+ 		$Artist['Artist']['standards'] == '1')
+			{echo $html->link('Standards','/artists/sort/genres/standards');
+ 			if ($Artist['Artist']['world'] == '1'){echo nl2br("\n").$html->link('World','/artists/sort/genres/world');} 			
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '0' &&
+ 		$Artist['Artist']['rock'] == '0' &&
+ 		$Artist['Artist']['soul'] == '0' &&
+ 		$Artist['Artist']['standards'] == '0' &&
+ 		$Artist['Artist']['world'] == '1')
+			{echo $html->link('World','/artists/sort/genres/world');
+  			if ($Artist['Artist']['other'] == '1'){echo nl2br("\n").$html->link('Other','/artists/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($Artist['Artist']['blues'] == '0' &&
+ 		$Artist['Artist']['cabaret'] == '0' &&
+ 		$Artist['Artist']['classical'] == '0' &&
+ 		$Artist['Artist']['country'] == '0' &&
+ 		$Artist['Artist']['electronic'] == '0' &&
+ 		$Artist['Artist']['experimental'] == '0' &&
+ 		$Artist['Artist']['folk'] == '0' &&
+ 		$Artist['Artist']['hiphop'] == '0' &&
+ 		$Artist['Artist']['jazz'] == '0' &&
+ 		$Artist['Artist']['kids'] == '0' &&
+ 		$Artist['Artist']['latin'] == '0' &&
+ 		$Artist['Artist']['opera'] == '0' &&
+ 		$Artist['Artist']['pop'] == '0' &&
+ 		$Artist['Artist']['reggae'] == '0' &&
+ 		$Artist['Artist']['religious'] == '0' &&
+ 		$Artist['Artist']['rock'] == '0' &&
+ 		$Artist['Artist']['soul'] == '0' &&
+ 		$Artist['Artist']['standards'] == '0' &&
+ 		$Artist['Artist']['world'] == '0')
+			{echo $html->link('Other','/artists/sort/genres/other');}
+		?>
+			</td>
+			<td>
+				<b>Address</b><br><?php echo nl2br($Location['Location']['street_add1'] ." ". $Location['Location']['street_add2']."\n".$Location['Location']['city'] .", ". $Location['Location']['state'] ." ". $Location['Location']['zip_code']); ?>
+			</td>
+		</tr>
+		<tr class="altRow">
+			<td>
+				<?php if (!empty($Artist['Artist']['description'])){ ?><b>Description</b><br><small><?php echo $Artist['Artist']['description'];} else { echo "<small>No Description Provided</small>";} ?></small>
+			</td>
+			<td>
+				<?php if (!empty($Location['Location']['description'])){ ?><b>Description</b><br><small><?php echo $Location['Location']['description'];} else { echo "<small>No Description Provided</small>";} ?></small>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php
+					 if (empty($Artist['Artist']['website']) && empty($Artist['Artist']['myspace']))
+					 {
+					 	echo "<small>No Website Provided</small>";
+					 }
+					 if (!empty($Artist['Artist']['website']) && empty($Artist['Artist']['myspace']))
+					 {
+					 	if (strlen($Artist['Artist']['website']) > 30)
+					 	{
+					 		echo $html->link('Website', 'http://'.$Artist['Artist']['website']);					 		
+					 	}
+					 	else
+					 	{
+					 		echo $html->link($Artist['Artist']['website'], 'http://'.$Artist['Artist']['website']);					 		
+					 	}
+					 }
+					 if (empty($Artist['Artist']['website']) && !empty($Artist['Artist']['myspace']))
+					 {
+					 echo $html->link('MySpace', 'http://'.$Artist['Artist']['myspace']);
+					 }
+					 if (!empty($Artist['Artist']['website']) && !empty($Artist['Artist']['myspace']))
+					 {
+					 	if (strlen($Artist['Artist']['website']) > 30)
+					 	{
+					 		echo $html->link('Website', 'http://'.$Artist['Artist']['website']).nl2br("\n").$html->link('MySpace', 'http://'.$Artist['Artist']['myspace']);					 		
+					 	}
+					 	else
+					 	{
+					 		echo $html->link($Artist['Artist']['website'], 'http://'.$Artist['Artist']['website']).nl2br("\n").$html->link('MySpace', 'http://'.$Artist['Artist']['myspace']);					 		
+					 	}
+					 }
+				 ?>
+			</td>
+			<td>
+							<?php
+				if (empty($Location['Location']['website']))
+				{
+					echo "<small>No Website Provided</small>";
+				}
+				if (!empty($Location['Location']['website']))
+				{
+					if (strlen($Location['Location']['website']) > 30)
+					{
+						echo $html->link('Website', 'http://'.$Location['Location']['website']);					 		
+					}
+					else
+					{
+						echo $html->link($Location['Location']['website'], 'http://'.$Location['Location']['website']);					 		
+					}
+				}
+			?>
+			</td>
+		</tr>
+		<tr class="altRow">
+			<td>
+				<strong>Artist Notes</strong><br><?php echo $Performance['Performance']['artist_notes'] ?>
+			</td>
+			<td>
+				<strong>Location Notes</strong><br><?php echo $Performance['Performance']['location_notes'] ?>
+			</td>
+
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+<?php echo $html->formTag('/admin/performances/deny/'.$Performance['Performance']['id']) ?>
+<div class="container">
+<div class="column span-10">
+<fieldset>
+<legend>Performance Denial</legend>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<td style=text-align:left>
+				<label>Denial Reason</label><br>
+				<?php echo $html->textarea('Performance/description', array('cols' => '60', 'rows' => '10'))."<br><small>Please enter a reason for denial.  The denied Artist & Location will recieve an email with the denial reason.</small>";?>
+			</td>
+		</tbody>
+	</table>
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button positive">
+    	<?php echo $html->image('icons/accept.png') ?> Submit
+	</button>
+	<a class="button negative" href="../">
+		<?php echo $html->image('icons/cancel.png') ?> Cancel
+	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+</div>
+</div>

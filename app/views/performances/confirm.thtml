@@ -1,0 +1,34 @@
+<h3>Approve a Performance Request from:</h3>
+<p><strong><?php if ($Artist && $User['User']['user_type'] == '160'){echo $otherlocation['Location']['locationname'];} if ($Location && $User['User']['user_type'] == '180'){echo $otherartist['Artist']['groupname'];} ?></strong></p>
+<p>Time Requested: <b><?php echo $Performance['Performance']['start_time']." - ".$Performance['Performance']['end_time']; ?></b></p>
+<p>Notes from <?php if ($Artist && $User['User']['user_type'] == '160'){echo "Location: <b>".$Performance['Performance']['location_notes']."</b>";} if ($Location && $User['User']['user_type'] == '180'){echo "Artist: <b>".$Performance['Performance']['artist_notes']."</b>";} ?></p>
+<?php echo $html->formTag('/performances/confirm/'.$Performance['Performance']['id']) ?>
+<div class="container">
+<div class="column span-10">
+<fieldset>
+<legend>Performance Approval</legend>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<td style=text-align:left>
+				<label>Approval Notes</label>
+				<?php if ($Location && $User['User']['user_type'] == '180'){ echo $html->textarea('Performance/location_notes', array('cols' => '60', 'rows' => '5'))."<br><small>Enter in any additional information about your Location and the Performance.</small>";}?>
+				<?php if ($Artist && $User['User']['user_type'] == '160'){ echo $html->textarea('Performance/artist_notes', array('cols' => '60', 'rows' => '5'))."<br><small>Enter in any additional information about your Artist and the Performance.</small>";}?>
+				<?php if ($Location && $User['User']['user_type'] == '180'){ echo $html->hiddenTag('Performance/location_confirmed', '1');} ?>
+				<?php if ($Artist && $User['User']['user_type'] == '160'){echo $html->hiddenTag('Performance/artist_confirmed', '1');} ?>
+			</td>
+		</tbody>
+	</table>
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button positive">
+    	<?php echo $html->image('icons/accept.png') ?> Submit
+	</button>
+		<a class="button negative" href="../../users">
+		<?php echo $html->image('icons/cancel.png') ?> Cancel
+	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+</div>
+</div>

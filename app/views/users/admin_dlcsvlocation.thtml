@@ -1,0 +1,21 @@
+<?php
+foreach ($data as $csvdata) {          
+	$line = array();
+	 foreach ($csvdata['Location'] as $k=>$v) {
+		$line[] = $k;
+	}                
+	$line[] = nl2br("\n");
+}
+$csv->addRow($line); 
+
+foreach ($data as $csvdata) {          
+	$line = array();                
+	 foreach ($csvdata['Location'] as $k=>$v) {
+		$line[] = $v;
+	}                
+	$line[] = nl2br("\n");
+	$csv->addRow($line); 
+}
+ 
+echo $csv->render('locations.csv'); 
+?>

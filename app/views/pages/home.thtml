@@ -1,0 +1,24 @@
+<?php
+$this->pageTitle = 'Home'; 
+$this->layout    = 'default';
+$imgPath = '';
+?>                
+<?php if (TODAY < FINAL_CLOSE_DATE) { ?> 
+<div class="home-login"><a href="/users/login/">Log In</a></div>
+<?php } ?> 
+
+
+<div><h3>MMNY's "matchmaking" system is now closed for 2012.</h3><br />
+If you are already confirmed for a MMNY performance 
+and need to change any details, please email <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a>.  <br /><br />
+</div>
+<?php if (TODAY < REGISTRATION_CLOSE_DATE) { ?> 
+<div class="home-register"><a href="/users/register/">Register</a></div>
+<?php } ?>
+	<hr />
+
+	<p><small><a  href="http://makemusicny.org/terms-and-conditions">Terms and Conditions</a> | <a  href="http://makemusicny.org/privacy-policy">Privacy Policy</a>
+		<br /><br />
+		<span style="line-height:110%; font-weight:bold;">Note: Upon signing up, you will receive an email from <span style="color:#047F99;">admin@makemusicny.org</span> to confirm registration. Please add this address to your "white list," and check your spam folder if you do not receive the email.</span>
+	</small></p>
+	

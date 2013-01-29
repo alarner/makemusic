@@ -1,0 +1,175 @@
+<h3>My Pending Performances</h3>
+<br>
+
+ <!--**********USER INFORMATION -FOR ALL USERS**********-->
+ <?php echo $this->element('usernav'); ?>    
+
+<fieldset>   
+
+<?php if ($your_locations){ ?>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+		<?php if (TODAY < CLOSE_DATE) {?>
+			<td colspan="4" style=text-align:left><h3>Your Pending Performances</h3>These performances, requested by artists, are awaiting your approval. You can approve, modify, or decline these requests.</td>
+	 	<?php } else { ?>
+			<td colspan="4" style=text-align:left><h3>Your Pending Performances</h3>
+			These performances have been requested by artists.<br /><br />
+
+			MMNY's website matchmaking is now closed for 2012, 
+			and it is too late to confirm or decline these requests using the website. 
+			You may still contact the artist offline to make arrangements, and email 
+			your confirmed details to <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a>. 
+			If it's not too late, we will add them to the schedule.
+		    </td>
+		<?php } ?>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		
+		<td width='50'></td>
+		<td><b>Artist</b></td>
+		<td><b>Location</b></td>
+		<td><b>Time</b></td>
+		<td><b>Artist<br>Notes</b></td>
+	</tr>
+	<?php foreach ($your_locations as $key=>$yourall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td>
+				<?php echo $html->link("<small>View</small>",'/performances/view/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php if (TODAY < CLOSE_DATE) {?>
+					<?php echo "<br>".$html->link("<small>Approve</small>",'/performances/confirm/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+					<?php echo "<br>".$html->link("<small>Modify</small>",'/performances/edit/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+					<?php echo "<br>".$html->link("<small>Decline</small>",'/performances/deny/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php } ?>
+			</td>
+			<td><?php echo $html->link($yourall['Artist']['groupname'],'/artists/view/'.$yourall['Artist']['id']) ?></td>
+			<td><?php echo $html->link($Locations[$yourall['Performance']['location_id']],'/locations/view/'.$yourall['Performance']['location_id']) ?></td>
+			<td><small><?php echo $yourall['Performance']['start_time'].nl2br("\n-\n").$yourall['Performance']['end_time']?></small></td>
+			<td><small><?php echo $yourall['Performance']['artist_notes'] ?></small></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php } ?>
+	
+
+<?php if ($your_artists) {?>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+	<?php if (TODAY < CLOSE_DATE) {?>
+			<td colspan="4" style=text-align:left><h3>Your Pending Performances</h3>These performances, requested by locations are awaiting your approval. You can approve, modify or decline these requests.</td>
+ 	<?php } else { ?>
+ 	      
+		<td colspan="4" style=text-align:left><h3>Your Pending Performances</h3>
+		These performances have been requested by locations. </td>
+		These performances have been requested by locations. <br />
+		<br />MMNY's website matchmaking is now closed for 2012, 
+		and it is too late to confirm or decline these requests using the website. 
+		You may still contact the location offline to make arrangements, and email 
+		your confirmed details to <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a>. 
+		If it's not too late, we will add them to the schedule.</td>
+		
+	<?php } ?>
+  	</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		
+		<td width='50'></td>
+		<td><b>Location</b></td>
+		<td><b>Time </b></td>
+		<td><b>Location<br>Notes</b></td>
+	</tr>
+	<?php foreach ($your_artists as $key=>$yourall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td>
+				<?php echo $html->link("<small>View</small>",'/performances/view/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php if (TODAY < CLOSE_DATE) {?>
+					<?php echo "<br>".$html->link("<small>Approve</small>",'/performances/confirm/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+					<?php echo "<br>".$html->link("<small>Modify</small>",'/performances/edit/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+					<?php echo "<br>".$html->link("<small>Decline</small>",'/performances/deny/'.$yourall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php } ?>
+			</td>
+			<td><?php echo $html->link($yourall['Location']['locationname'],'/locations/view/'.$yourall['Location']['id']) ?></td>
+			<td><small><?php echo $yourall['Performance']['start_time'].nl2br("\n-\n").$yourall['Performance']['end_time']?></small></td>
+			<td><small><?php echo $yourall['Performance']['location_notes'] ?></small></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php } ?>
+	
+
+<?php if ($pending_locations) {?>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td colspan="4" style=text-align:left><h3>Other Pending Performances</h3><div class="introText">These are performances that you have confirmed and that are awaiting artist and/or Make Music NY approval. You can modify or cancel these requests.</div></td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		
+		<td width='50'></td>
+		<td><b>Artist</b></td>
+		<td><b>Location</b></td>
+		<td><b>Time</b></td>
+		<td><b>Approval<br>Status</b></td>
+	</tr>
+	<?php foreach ($pending_locations as $key=>$penall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td>
+				<?php echo $html->link("<small>View</small>",'/performances/view/'.$penall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php echo "<br>".$html->link("<small>Modify</small>",'/performances/edit/'.$penall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php echo "<br>".$html->link("<small>Cancel</small>",'/performances/remove/'.$penall['Performance']['id'],"style='float: left'",NULL,false) ?>
+			</td>
+			<td><?php echo $html->link($penall['Artist']['groupname'],'/artists/view/'.$penall['Artist']['id']) ?></td>
+			<td><?php echo $html->link($Locations[$penall['Performance']['location_id']],'/locations/view/'.$penall['Performance']['location_id']) ?></td>
+			<td><small><?php echo $penall['Performance']['start_time'].nl2br("\n-\n").$penall['Performance']['end_time']?></small></td>
+			<td><small>
+				<?php if ($penall['Performance']['artist_confirmed'] == '1' && $penall['Performance']['admin_confirmed'] == '0'){echo nl2br("Artist Approved,\nAwaiting MMNY Approval");} ?>
+				<?php if ($penall['Performance']['artist_confirmed'] == '0' && $penall['Performance']['admin_confirmed'] == '0'){echo nl2br("Awaiting Artist\nand MMNY Approval");}?>
+			</small></td>
+			</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php }  ?>
+	
+
+<?php if ($pending_artists) {?>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td colspan="4" style=text-align:left><h3>Other Pending Performances</h3><div class="introText">These are performances that you have confirmed and that are awaiting location and/or Make Music NY approval.  You can modify or cancel these requests.</div></td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		
+		<td width='50'></td>
+		<td><b>Location</b></td>
+		<td><b>Time</b></td>
+		<td><b>Approval<br>Status</b></td>
+	</tr>
+	<?php foreach ($pending_artists as $key=>$penall){?>
+		<tr <?php if ( $key%2 ) { echo ' class="altRow"'; }?>>
+			<td>
+				<?php echo $html->link("<small>View</small>",'/performances/view/'.$penall['Performance']['id'],"style='float: left'",NULL,false) ?>
+				<?php echo "<br>".$html->link("<small>Cancel</small>",'/performances/remove/'.$penall['Performance']['id'],"style='float: left'",NULL,false) ?>
+			</td>
+			<td><?php echo $html->link($penall['Location']['locationname'],'/locations/view/'.$penall['Location']['id']) ?></td>
+			<td><small><?php echo $penall['Performance']['start_time'].nl2br("\n-\n").$penall['Performance']['end_time']?></small></td>
+			<td><small>
+				<?php if ($penall['Performance']['location_confirmed'] == '1' && $penall['Performance']['admin_confirmed'] == '0'){echo nl2br("Location Approved,\nAwaiting MMNY Approval");} ?>
+				<?php if ($penall['Performance']['location_confirmed'] == '0' && $penall['Performance']['admin_confirmed'] == '0'){echo nl2br("Awaiting Location\nand MMNY Approval");}?>
+			</small></td>
+		</tr>
+	<?php ;} ?>
+	</tbody>
+</table>
+<?php } ?>
+</fieldset>

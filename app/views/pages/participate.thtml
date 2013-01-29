@@ -1,0 +1,20 @@
+<?php $this->pageTitle = 'Participate'; ?> 
+<?php $this->layout = 'participate'; ?>
+
+<h2>Matchmaking Closed</h2>
+<P>MMNY's "matchmaking" system is now closed for 2010.</P>
+<p>If you are already confirmed for a MMNY performance and need to change any details, please email <a href="mailto:mmny.corrections@gmail.com">mmny.corrections@gmail.com</a>.<br>
+For all other questions, email <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a>.
+</p>
+
+<!-- REGISTRATION CLOSED -->
+<h2>Take Part</h2>
+<p><strong><a href="users/register">To register for MMNY, click here</a></strong></p>
+<!--REGISTRATION CLOSED -->
+
+<p>Our organizers set up the framework for concerts &#8212; the rest is up to you! Artists and locations collaborate to produce the events, find electricity, and provide whatever equipment is needed.</p>
+<p>Unlike most music festivals:</p>
+<p>&#8226; New York City itself is your stage. We&apos;re not constructing stages (though some local promoters are doing so &#8212; and securing additional permits to do it). Performances generally take place at the same level as the audience.</p>
+<p>&#8226; You have complete artistic control. It&apos;s your concert. If you want to perform with a different bass player than previously announced, or take an extended kazoo improvisation on Dies Irae, you don&apos;t have to ask our permission! (But let us know if we need to update your concert description.)</p>
+<p>&#8226; Everyone can take part. From professionals to amateurs, from the mainstream to the unfashionably bizarre &#8212; if you can find a spot for your performance that works, you can be part of Make Music New York!</p>
+<!-- REGISTRATION CLOSED --><p><strong><a href="users/register">Register now!</a></strong></p> <!-- REGISTRATION CLOSED -->

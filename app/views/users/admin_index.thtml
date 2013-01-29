@@ -1,0 +1,42 @@
+<h3>Make Music New York Admin Tool</h3>
+<br>
+<div id="navcontainer">
+<ul id="navlist">
+<li id="active"><a href="<?php echo $this->webroot;?>users/"id="current">Home</a></li>
+<li><a href="<?php echo $this->webroot;?>admin/users/pending">Pending Performances<?php if ($await_admin){echo " (".count($await_admin).")";}?></a></li>
+<?php if ($all_confirmed){echo"<li><a href='".$this->webroot."admin/users/confirmed' id='current'>Confirmed Performances</a></li>";}?>
+</div>
+<fieldset>
+<table class="inav" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td style=text-align:left><h3>Welcome</h3>This is the Make Music NY Admin Tool.</td>
+		</tr>
+	</thead>
+	<tbody>
+	<tr class="altRow">
+		<td><?php echo $html->link('Get CSV of Users','/admin/users/csv'); ?><br><small>(Email Address, Salutation, First Name, Last Name, User Type)</small></td>
+	</tr>
+	<tr class="altRow">
+		<td><?php echo $html->link('Get CSV of Locations','/admin/users/csvlocation'); ?><br><small>(locationname, website, street_add1, street_add2, city, hood, state, zip_code, ph_primary)</small></td>
+	</tr>                                                                                                          
+	<tr class="altRow">
+		<td><?php echo $html->link('Get CSV of Rock Artists','/admin/users/csvartist?rock=1'); ?><br><small>(groupname, website, description, user_id)</small></td>
+	</tr>
+		<tr class="altRow">
+			<td><?php echo $html->link('Get CSV of Non-Rock Artists','/admin/users/csvartist?rock=0'); ?><br><small>(groupname, website, description, user_id)</small></td>
+		</tr>
+		<tr class="altRow">
+			<td><?php echo $html->link('Get CSV of Performances Location Confirmed','/admin/users/csvperformance?lc=1'); ?><br><small>(id,artist_id,location_id,artist_confirmed,location_confirmed,admin_confirmed,<br />start_time,end_time,description,artist_notes,location_notes,admin_notes,last_updated,acl,lca)</small></td>
+		</tr>
+			<tr class="altRow">
+				<td><?php echo $html->link('Get CSV of Performances Location not Confirmed','/admin/users/csvperformancelv=0'); ?><br><small>(id,artist_id,location_id,artist_confirmed,location_confirmed,admin_confirmed,<br />start_time,end_time,description,artist_notes,location_notes,admin_notes,last_updated,acl,lca)</small></td>
+			</tr>
+<?php if ($await_admin){ ?>
+	<tr>
+		<td>You Currently Have <?php echo count($await_admin); if (count($await_admin) == '1'){echo " Performance";}else{echo " Performances";}?> awaiting just MMNY's Approval.<br>Confirm, Deny, or Edit them <?php echo $html->link('Here','/admin/users/pending'); ?><br></td>
+	</tr>
+<? } ?>
+</tbody>
+</table>
+</fieldset>

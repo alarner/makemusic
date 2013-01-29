@@ -1,0 +1,38 @@
+<?php $this->layout = 'blank'; ?>
+<h3>MMNY User Login</h3>
+<p>Please log in below.</p>
+<?php echo $html->formTag('/users/login') ?>
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Login Information</legend>
+	<br>
+	<table>
+		<tr>			
+			<td style=text-align:left>
+				<label for="emailaddress">Email Address</label> 
+				<?php echo $html->input('User/emailaddress', array('class'=>'text')) ?> 
+			</td>
+			<td style="text-align:left">
+				<label for="password">Password</label> 
+				<?php echo $html->passwordTag('User/password', array('class'=>'text')) ?>			
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style=text-align:left>
+				<?php echo $html->tagErrorMsg('User/password', '<br><div class="error">Invalid Email or Password</div>') ?>
+			</td>
+		</tr>
+	</table>
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button login">
+   		<?php echo $html->image('icons/key.png') ?> Login
+   	</button>
+   	<a class="button negative" href="../">
+   		<?php echo $html->image('icons/cancel.png') ?> Cancel
+   	</a>
+</p>
+</form>
+</div>
+</div>

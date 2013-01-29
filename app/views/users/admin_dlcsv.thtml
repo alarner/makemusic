@@ -1,0 +1,23 @@
+<?php
+//$line = array('Email Address','Salutation','First Name', 'Last Name', 'User Type');
+//$csv->addRow($line);
+foreach ($data as $csvdata) {          
+	$line = array();
+	 foreach ($csvdata['User'] as $k=>$v) {  
+		if ($k != "password" && $k != "rand" && $k != "hash") $line[] = $k;
+	}                
+	$line[] = nl2br("\n");
+}
+$csv->addRow($line); 
+
+foreach ($data as $csvdata) {          
+	$line = array();                
+	 foreach ($csvdata['User'] as $k=>$v) { 	
+		if ($k != "password" && $k != "rand" && $k != "hash") $line[] = $v;
+	}                
+	$line[] = nl2br("\n");
+	$csv->addRow($line); 
+}
+
+echo $csv->render('users.csv'); 
+?>

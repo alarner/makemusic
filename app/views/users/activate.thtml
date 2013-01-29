@@ -1,0 +1,1 @@
+<div class="<?php echo $gorb; ?>"><?php echo $activate.' <strong>'.$html->link('Click here to '.$url,$url).'</strong>'; ?></div>

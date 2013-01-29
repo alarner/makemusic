@@ -1,0 +1,256 @@
+<h3>Create Your Own Performance Location</h3>
+<p>Enter in your Location and Performance information below.</p>
+<?php echo $html->formTag('/users/ownlocation') ?> 
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Location Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Location Type</label>
+					<?php echo $html->selectTag('Location/type',  array('Sidewalk'=>'Sidewalk','Garden'=>'Garden','Privately Controlled Public Space'=>'Privately Controlled Public Space','Block Party or Street Fair'=>'Block Party or Street Fair','Other'=>'Other')); ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label>Location Name</label>
+					<?php echo $html->input('Location/locationname', array('class'=>'text')) ?><br>
+					<small>&nbsp;</small>
+				</td>
+				<td style=text-align:left>
+					<label class="opt">Location Website</label>
+					<?php echo $html->input('Location/website', array('class'=>'text')) ?><br>
+					<small>www.location.com</small>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('Location/locationname', "<div class='error'>You must enter a location name.</div>") ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="street_add1">Street Address 1</label> 
+					<?php echo $html->input('Location/street_add1', array('class'=>'text')) ?> 
+				</td>
+				<td style=text-align:left>
+					<label for="street_add2" class="opt">Street Address 2</label> 
+					<?php echo $html->input('Location/street_add2', array('class'=>'text')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="city">City</label> 
+					<?php echo $html->input('Location/city', array('class'=>'text')) ?> 
+				</td>
+				<td style=text-align:left>
+					<label for="state">State</label> 
+					<?php echo $html->selectTag('Location/state',  array(
+					'NY' => 'New York'), 'NY', null, null, false, false); ?> 
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="name">Zip Code</label><br>
+                    <?php echo $html->input('Location/zip_code', array('class'=>'text','maxlength'=>'5')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="name">Neighborhood</label><br>
+					<select name="hood">
+						<option value ="Choose Neighborhood">Choose Neighborhood</option>
+						<optgroup label="Bronx">
+							<option value ="Coop City">Coop City</option> <option value ="Fordham">Fordham</option> <option value ="High Bridge">High Bridge</option> <option value ="Kingsbridge">Kingsbridge</option> <option value ="Melrose">Melrose</option> <option value ="Morris Heights">Morris Heights</option> <option value ="Mott Haven">Mott Haven</option> <option value ="Norwood">Norwood</option> <option value ="Riverdale">Riverdale</option> <option value ="Soundview">Soundview</option> <option value ="Tremont">Tremont</option> <option value ="Other Bronx">Other Bronx</option>
+						</optgroup>
+						<optgroup label="Brooklyn">
+							<option value ="Bay Ridge">Bay Ridge</option> <option value ="Bedford-Stuyvasant">Bedford-Stuyvasant</option> <option value ="Bensonhurst">Bensonhurst</option> <option value ="Brighton">Brighton</option> <option value ="Brooklyn Heights">Brooklyn Heights</option> <option value ="Bushwick">Bushwick</option> <option value ="Carroll Gardens">Carroll Gardens</option> <option value ="Cobble Hill">Cobble Hill</option> <option value ="Coney Island">Coney Island</option> <option value ="Crown Heights">Crown Heights</option> <option value ="Downtown Brooklyn">Downtown Brooklyn</option> <option value ="Dumbo">Dumbo</option> <option value ="East New York">East New York</option> <option value ="Flatbush">Flatbush</option> <option value ="Fort Greene">Fort Greene</option> <option value ="Fort Hamilton">Fort Hamilton</option> <option value ="Greenpoint">Greenpoint</option> <option value ="Midwood">Midwood</option> <option value ="Park Slope">Park Slope</option> <option value ="Prospect Heights">Prospect Heights</option> <option value ="Red Hook">Red Hook</option> <option value ="Ridgewood">Ridgewood</option> <option value ="Sunset Park">Sunset Park</option> <option value ="Williamsburg">Williamsburg</option> <option value ="Other Brooklyn">Other Brooklyn</option>
+						</optgroup>
+						<optgroup label="Manhattan">
+							<option value ="Chelsea">Chelsea</option> <option value ="Chinatown-Little Italy">Chinatown-Little Italy</option> <option value ="Clinton-Hells Kitchen">Clinton-Hells Kitchen</option> <option value ="Columbia University">Columbia University</option> <option value ="East Harlem">East Harlem</option> <option value ="East Village">East Village</option> <option value ="Financial District">Financial District</option> <option value ="Gramercy-Flatiron">Gramercy-Flatiron</option> <option value ="Greenwich Village">Greenwich Village</option> <option value ="Harlem">Harlem</option> <option value ="Inwood">Inwood</option> <option value ="Lower East Side">Lower East Side</option> <option value ="Midtown East">Midtown East</option> <option value ="Midtown West">Midtown West</option> <option value ="Murray Hill">Murray Hill</option> <option value ="Soho">Soho</option> <option value ="Tribeca">Tribeca</option> <option value ="Upper East Side">Upper East Side</option> <option value ="Upper West Side">Upper West Side</option> <option value ="Washington Heights">Washington Heights</option> <option value ="West Village">West Village</option> <option value ="Other Manhattan">Other Manhattan</option>
+						</optgroup>
+						<optgroup label="Queens">
+							<option value ="Astoria">Astoria</option> <option value ="Bayside">Bayside</option> <option value ="College Point">College Point</option> <option value ="Elmhurst">Elmhurst</option> <option value ="Far Rockaway">Far Rockaway</option> <option value ="Flushing">Flushing</option> <option value ="Forest Hills">Forest Hills</option> <option value ="Jackson Heights">Jackson Heights</option> <option value ="Jamaica">Jamaica</option> <option value ="Kensington">Kensington</option> <option value ="Kew Gardens">Kew Gardens</option> <option value ="Long Island City">Long Island City</option> <option value ="Middle Village">Middle Village</option> <option value ="Rego Park">Rego Park</option> <option value ="Sunnyside">Sunnyside</option> <option value ="Woodside">Woodside</option> <option value ="Other Queens">Other Queens</option>
+						</optgroup>
+						<optgroup label="Staten Island">
+							<option value ="Mid-Island">Mid-Island</option> <option value ="Park Hill">Park Hill</option> <option value ="Saint George">Saint George</option> <option value ="South Shore">South Shore</option> <option value ="Stapleton">Stapleton</option> <option value ="Tompkinsville">Tompkinsville</option> <option value ="Other Staten Island">Other Staten Island</option>
+						</optgroup>
+					</select>
+				</td>
+			</tr>
+<!--
+			<tr>
+				<td colspan="2">
+					<?php echo $html->tagErrorMsg('Location/zip_code', '<br><div class="error">'.$zip_code_error.'</div>') ?>
+				</td>
+			</tr>
+-->			
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Location Description</label><br>
+					<?php echo $html->textarea('Location/description', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Give a brief description of your location.</small>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Contact Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Location Phone</label><br>
+					<?php echo $html->input('Location/phpri1', array('size'=>'3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('Location/phpri2', array('size' => '3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('Location/phpri3', array('size' => '4','maxlength'=>'4','class'=>'ph4')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Will you be on-site on June 21st?</label><br>
+					<?php echo $html->radio('Location/onsite', array('1'=>'Yes','0'=>'No'), '', array('value' => '1')) ?><br>
+					<small>If no, include the contact information for the person who will be onsite.</small>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label class="opt">Contact's Name</label><br>
+					<?php echo $html->input('Location/onsite_name', array('class'=>'text')) ?>
+				</td>
+				<td style=text-align:left>
+					<label class="opt">Contact's Number</label><br>
+					<?php echo $html->input('Location/photh1', array('size'=>'3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('Location/photh2', array('size' => '3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('Location/photh3', array('size' => '4','maxlength'=>'4','class'=>'ph4')) ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Location Preferences</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+			<tr>
+				<td style=text-align:left colspan="2">
+					<label>Electricity Requirements</label><br>
+					<?php echo $html->radio('Location/electricity', array('0'=>'<small>Can provide electricity</small>','1'=>'<small>Artist must provide electricty</small>','2'=>'<small>No electricity may be used</small>'), '<br style="clear:both;"/>',array('value' => '0')) ?> 
+					<?php echo $html->tagErrorMsg('Location/electricity', 'Invalid') ?>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>			
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Will you put up free MMNY posters at your location?</label><br>
+					<?php echo $html->radio('Location/poster', array('1'=>'Yes','0'=>'No'), '', array('value' => '1')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Other Promotion:</label><br>
+					<?php echo $html->textarea('Location/promote', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>What you will do to promote this event.</small>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Please answer the following:</label><br><br>
+					<label>Is the location within 500 feet of a school, house of worship, hospital, or similar institution?</label><br>
+					<?php echo $html->radio('Location/surrounding', array('1'=>'Yes','0'=>'No'), '', array('value' => '0')) ?><br>
+					<small>If yes, and that instituition is not presenting this concert, NO amplification will be permitted at this location.</small>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>If it rains, can musicians set up in your lobby, storefront, foyer, etc?</label><br>
+					<?php echo $html->radio('Location/rain', array('1'=>'Yes','0'=>'No','2'=>'Other'), '', array('value' => '1')) ?><br>
+					<small>If other, please explain.</small><br>
+					<?php echo $html->textarea('Location/rain_other', array('cols' => '60', 'rows' => '5')) ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>			
+</fieldset>
+<fieldset>
+	<legend>Performance Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td style=text-align:left>
+					<label>Start Time</label><br>
+					<?php echo $html->selectTag('Performance/start_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '1'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/start_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/start_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+				<td style=text-align:left>
+					<label>End Time</label><br>
+					<?php echo $html->selectTag('Performance/end_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '2'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/end_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/end_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Notes:</label><br>
+					<?php echo $html->textarea('Performance/artist_notes', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Enter in any information about your performance.</small>
+					<?php echo $html->hiddenTag('Location/hood') ?>
+					<?php echo $html->hiddenTag('Location/ph_primary') ?>
+					<?php echo $html->hiddenTag('Location/onsite_phone') ?>
+					<?php echo $html->hiddenTag('Location/user_id') ?>
+					<?php echo $html->hiddenTag('Location/acl', '1') ?>
+					<?php echo $html->hiddenTag('Performance/acl', '1') ?>
+					<?php echo $html->hiddenTag('Performance/location_confirmed', '1') ?>
+					<?php echo $html->hiddenTag('Performance/artist_confirmed', '1') ?>
+					<?php echo $html->hiddenTag('Performance/artist_id', $Artist['id']) ?>
+					<?php echo $html->hiddenTag('Performance/location_id') ?>
+					<?php echo $html->hiddenTag('Performance/start_time') ?>
+					<?php echo $html->hiddenTag('Performance/end_time') ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button positive">
+   		<?php echo $html->image('icons/accept.png') ?> Submit
+   	</button>
+   	<a class="button negative" href="../">
+   		<?php echo $html->image('icons/cancel.png') ?> Cancel
+   	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+	<div class="notes">
+        <h4><b>Location Information</b></h4>
+        <p>Your Location name is required.</p>
+        <p>Please enter your website URL as stated below the fields.</p>
+        <p>Please enter the address of your location, NOT your mailing address. If your space does not have a numbered street address, please enter the nearest street address.</p>
+        <p class="last">Give a brief description of your location: the size of the performance space, special requirements, etc. Except in case of rain, all performances must take place outside.</p>
+      </div>
+      <br>
+      <br>
+	<div class="notes">
+        <h4><b>Contact Information</b></h4>
+        <p>Please enter the contact information for this location.</p>
+        <p>This information is only used to coordinate the performance(s) hosted at your location.</p>
+        <p class="last">If you will not be on location the day of the performance please leave a contact who will be on-site.</p>
+      </div>
+      <br>
+      <br>      
+	<div class="notes">
+		<h4><b>Location Preferences</b></h4>
+		<p class="last">If your location is within 500 feet of a school, house of worship, hospital, or similar institution and that institution is NOT presenting this concert then NO amplification will be permitted at this location.</p>
+	</div>
+</div>
+</div>

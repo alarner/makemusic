@@ -1,0 +1,165 @@
+<?php $this->pageTitle = 'Around the World'; ?> 
+<?php $this->layout = 'world'; ?>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/bitshifter.jpg',array('class'=>'floatRight','width'=>'300'));?>
+<h2>Around the World</h2>
+<p>Make Music New York is based on France's &#8220;F&#234;te de la Musique,&#8221; a national musical holiday inaugurated in 1982. Ever since, the festival has become an international phenomenon, celebrated on the same day in more than 327 cities in 111 countries, including Germany, Italy, Egypt, Syria, Morocco, Australia, Vietnam, Congo, Cameroon, Fiji, Colombia, Chile, Nepal, and Japan.</p>
+
+<p>Participating cities in 2008 included:</p>
+
+<h3>North Africa and Middle East</h3>
+
+<ol>
+<li><strong>Algeria:</strong> Algiers, Bejaia, Tizi Ouzou</li>
+<li><strong>Bahrain:</strong> Manama</li>
+<li><strong>Djibouti:</strong> Djibouti</li>
+<li><strong>Egypt:</strong> Alexandria, Cairo, Heliopolis</li>
+<li><strong>Iraq:</strong> Erbil </li>
+<li><strong>Israel:</strong> Beersheba, Haifa, Jerusalem, Nazareth, Tel Aviv</li>
+<li><strong>Jordan:</strong> Amman</li>
+<li><strong>Libya:</strong> Tripoli</li>
+<li><strong>Oman:</strong> Muscat</li>
+<li><strong>Palestinian Territories:</strong> Ramallah</li>
+<li><strong>Syria:</strong> Aleppo, Damascus, Homs, Latakia</li>
+<li><strong>Tunisia:</strong> Hammamet, Sfax, Sousse, Tunis</li>
+<li><strong>United Arab Emirates:</strong> Abu Dhabi, Dubai</li>
+</ol>
+
+<h3>Sub-Saharan Africa</h3>
+
+<ol>
+<li><strong>Benin:</strong> Cotonou </li>
+<li><strong>Burkina Faso:</strong> Bobo-Dioulasso </li>
+<li><strong>Cameroon:</strong> Buea, Garoua, Ngaoundere, Yaound&#233;</li>
+<li><strong>Cape Verde:</strong> Praia</li>
+<li><strong>Central African Republic:</strong> Bangui </li>
+<li><strong>Congo:</strong> Bukavu, Brazzaville, Kinshasa, Pointe-Noire </li>
+<li><strong>Cote d&#8217;Ivoire:</strong> Abengourou, Abobo, Abidjan, Attecoube, Cocody, Grand-Bassam, Marcory, Plateau, Port-Bouet, Yopougon</li>
+<li><strong>Equatorial Guinea:</strong> Malabo </li>
+<li><strong>Ethiopia:</strong> Addis-Ababa</li>
+<li><strong>Gabon:</strong> Libreville</li>
+<li><strong>Ghana:</strong> Accra, Kumasi </li>
+<li><strong>Guinea-Bissau:</strong> Bissau </li>
+<li><strong>Kenya:</strong> Nairobi</li>
+<li><strong>Madagascar:</strong> Ambanja, Ambatond Razaka, Ambositra, Antananarivo, Antalaha, Antsirabe, Antsiranana, Antsohihy, Fianarantsoa, Fort-Dauphin, Mahajanga, Manakara, Mananjary, Moramanga, Nosy-Be, Sambava, Sainte-Marie, Tamatave, Tsiroanomandidy, Tulear</li>
+<li><strong>Mali:</strong> Bamako </li>
+<li><strong>Mauritius:</strong> Curepipe, Rose-Hill</li>
+<li><strong>Mauritania:</strong> Kaedi, Nouadhibou, Nouakchott</li>
+<li><strong>Morocco:</strong> Agadir, Casablanca, Essaouira, Marrakech, Meknes, Oujda, Safi, Tangier</li>
+<li><strong>Namibia:</strong> Katima Mulilo, Ongwediva, Rundu, Walvisbay, Windhoek</li>
+<li><strong>Niger:</strong> Niamey </li>
+<li><strong>Nigeria:</strong> Abuja, Jos, Kaduna, Kano, Ibadan, Port-Harcourt </li>
+<li><strong>Senegal:</strong> Dakar, Kaolack, Mbour-Saly, Saint-Louis </li>
+<li><strong>Somalia:</strong> Hargeisa </li>
+<li><strong>South Africa:</strong> Johannesburg, Pretoria</li>
+<li><strong>Sudan:</strong> Khartoum </li>
+<li><strong>Uganda:</strong> Kampala</li>
+<li><strong>Yemen:</strong> Aden, Sanaa </li>
+<li><strong>Zambia:</strong> Lusaka</li>
+</ol>
+
+<h3>Americas</h3>
+
+<ol>
+<li><strong>Argentina:</strong> Buenos Aires, Mar del Plata, Santa Fe, Coronel Suarez</li>
+<li><strong>Bolivia:</strong> Cochabamba, La Paz, Santa Cruz, Sucre, Tarija</li>
+<li><strong>Brazil:</strong> Bel&#232;m, Belo Horizonte, Brasilia, Campinas, Campo Grande, Franca, Juiz de Fora, Recife, Salvador de Bahia, Santo Andre, Santos, Sao Luis, Sao Paulo, Vicosa </li>
+<li><strong>Canada:</strong> Halifax, Moncton, Montreal, Ottawa, Quebec City, Toronto, Vancouver, Winnipeg</li>
+<li><strong>Chile:</strong> Chillan, Osorno, Concepci&#243;n</li>
+<li><strong>Colombia:</strong> Barranquilla, Bogota, Bucaramanga, Cali, Carthag&#232;ne, Manizales, Medellin, Pereira</li>
+<li><strong>Costa Rica:</strong> San Jose, Moravia, Curridabat, Santo Domingo de Heredia</li>
+<li><strong>Cuba:</strong> Havana </li>
+<li><strong>Dominican Republic:</strong> Roseau, Saint-Domingue, Santiago de los Caballeros</li>
+<li><strong>Ecuador:</strong> Cuenca, Guayaquil, Loja, Quito, Portoviejo</li>
+<li><strong>Grenada:</strong> Saint-Georges </li>
+<li><strong>Guatemala:</strong> Guatemala City</li>
+<li><strong>Haiti:</strong> Les Cayes</li>
+<li><strong>Jamaica:</strong> Kingston </li>
+<li><strong>Mexico:</strong> Aguas Calientes, Cancun, Cuernavaca, Mexico City, Monterrey, San Luis, Toluca</li>
+<li><strong>Nicaragua:</strong> Managa</li>
+<li><strong>Panama:</strong> Panama City</li>
+<li><strong>Paraguay:</strong> Asunci&#243;n </li>
+<li><strong>Peru:</strong> Arequipa, Barranco, Chiclayo, Jesus Maria, Magdalena del Mar, Miraflores, Pueblo Libre, Piura, San Borja, San Isidro </li>
+<li><strong>Salvador:</strong> San Salvador </li>
+<li><strong>Suriname:</strong> Paramaribo </li>
+<li><strong>Trinidad and Tobago:</strong> Port d'Espagne </li>
+<li><strong>United States:</strong> Albion Michigan, <a href="http://www.makemusiccambridge.com" target="_blank">Cambridge Massachusetts</a>, Dallas, <a href="http://www.kalamazoofete.com" target="_blank">Kalamazoo</a>, Miami, New York City, <a href="http://www.makemusicpasadena.org" target="_blank">Pasadena</a>, Philadelphia, Oakland, Sacramento, San Francisco, Santa Fe, Washington DC</li>
+<li><strong>Uruguay:</strong> Montevideo, Paysandu </li>
+<li><strong>Venezuela:</strong> Caracas, Maracaibo, Porlamar, Valencia, Barquisimeto</li>
+</ol>
+
+<h3>Asia and Pacific</h3>
+
+<ol>
+<li><strong>Afghanistan:</strong> Kabul</li>
+<li><strong>Australia:</strong> Adelaide, Brisbane, Canberra, Melbourne, Perth, Sydney</li>
+<li><strong>Bangladesh:</strong> Chittagong, Dhaka</li>
+<li><strong>Burma:</strong> Rangoun </li>
+<li><strong>Cambodia:</strong> Phnom Penh, Sihanoukville, Siem Reap </li>
+<li><strong>China:</strong> Dalian, Hong Kong, Peking, Shanghai, Shandong, Wuhan, Xian</li>
+<li><strong>Fiji:</strong> Suva </li>
+<li><strong>India:</strong> Ahmedabad, Bangalore, Calcutta, Chandigarh, Hyderabad, Kerala, Madras, New Delhi, Pune</li>
+<li><strong>Indonesia:</strong> Jakarta, Surabaya, Yogyakarta </li>
+<li><strong>Japan:</strong> Fukuoka, Tokyo, <a href="http://www.mediatv.ne.jp/ongakunosaijitsu" target="_blank">Osaka</a>, Yokohama</li>
+<li><strong>Kazakhstan:</strong> Almaty </li>
+<li><strong>Korea:</strong> Seoul, Daegu </li>
+<li><strong>Laos:</strong> Vientiane </li>
+<li><strong>Malasia:</strong> Penang, Kuala Lumpur, Klang</li>
+<li><strong>Nepal:</strong> Kathmandu </li>
+<li><strong>New Zealand:</strong> Wellington </li>
+<li><strong>Philippines:</strong> Cebu </li>
+<li><strong>Pakistan:</strong> Islamabad, Karachi, Lahore</li>
+<li><strong>Singapore:</strong> Singapore </li>
+<li><strong>Sri Lanka:</strong> Matara, Galle </li>
+<li><strong>Surinam:</strong> Paramaribo </li>
+<li><strong>Thailand:</strong> Bangkok </li>
+<li><strong>Uzbekistan:</strong> Tachkent </li>
+<li><strong>Vanatu:</strong> Port-Vila </li>
+<li><strong>Vietnam:</strong> Hanoi</li>
+</ol>
+
+<h3>Europe</h3>
+
+<ol>
+<li><strong>Albania:</strong> Korca, Tirana, Elbasan </li>
+<li><strong>Armenia:</strong> Erevan </li>
+<li><strong><a href="http://www.conseildelamusique.be/index.php?pos=BF" target="_blank">Belgium</a>:</strong> Brussels, Li&#232;ge, Namur </li>
+<li><strong>Bosnia-Herzegovina:</strong> Banja Luka, Mostar, Tuzla, Sarajevo, Banja Luka </li>
+<li><strong>Bulgaria:</strong> Bourgas, Plovdiv, Sofia, Varna, Yambol </li>
+<li><strong>Croatia:</strong> Zagreb</li>
+<li><strong>Cyprus:</strong> Limassol, Nicosia</li>
+<li><strong>Czech Republic:</strong> Ceske Budejovice, Ostrava, Prague, Plzen</li>
+<li><strong>Denmark:</strong> Copenhagen</li>
+<li><strong><a href="http://fetedelamusique.culture.fr" target="_blank">France</a></strong> [Nationwide]</li>
+<li><strong>Georgia:</strong> Tbilissi </li>
+<li><strong>Germany:</strong> Aachen, <a href="http://www.fetedelamusique.de/3.0.html" target="_blank">Berlin</a>, Br&#232;me, Bonn, Dresden, Essen, Erlangen, Halle, <a href="http://www.fetedelamusique-hannover.de" target="_blank">Hanover</a>, Leipzig, Karlsruhe, Magdeburg, Mayence, <a href="http://www.musikinbayern.de/mib_europatage/termin.php" target="_blank">Munich</a>, <a href="http://www.fete-potsdam.de" target="_blank">Postdam</a>, Saarbruck, Stuttgart, Weimar, Weingarten</li>
+<li><strong>Great Britain:</strong> Edinburgh, Glasgow, <a href="http://www.exhibitionroadmusicday.org" target="_blank">London</a></li>
+<li><strong>Greece:</strong> <a href="http://www.musicday.gr" target="_blank">Athens</a></li>
+<li><strong>Hungary:</strong> Budapest, Miskolc</li>
+<li><strong>Italy:</strong> Arco, Avellino, Barchi, Bezzeca, Bologne, Genoa, <a href="http://www.compagniadellearti.com/main.html" target="_blank">Lucca</a>, Modena, Milan, <a href="http://www.festadellamusica-europea.it" target="_blank">Naples</a>, Palermo, Rivoli, <a href="http://www.festaeuropeadellamusica.com" target="_blank">Rome</a>, San Benedetto del Tronto, Savigliano, Senigallia, Tiarno di Sopra, Turin</li>
+<li><strong>Kosovo:</strong> Pristina </li>
+<li><strong>Latvia:</strong> Riga </li>
+<li><strong>Lithuania:</strong> Vilnus</li>
+<li><strong>Luxembourg:</strong> <a href="http://www.fetedelamusique.lu" target="_blank">Luxembourg</a></li>
+<li><strong>Macedonia:</strong> Bitola, Skopje, Tetovo</li>
+<li><strong>Malta:</strong> La Valette </li>
+<li><strong>Moldavia:</strong> Chisinau</li>
+<li><strong>Montenegro:</strong> Podgorica </li>
+<li><strong>Netherlands:</strong> Amsterdam, Curacao, Ermelo, Roosendaal, Rotterdam </li>
+<li><strong>Norway:</strong> Oslo </li>
+<li><strong>Poland:</strong> Torun, Varsovie</li>
+<li><strong>Portugal:</strong> Coimbra, Lisbon, Santa Maria de Feira</li>
+<li><strong>Romania:</strong> Bucarest, Cluj, Constanta, Lasi, Ploiesti, Pitesti, Sibiu, Timisoara, Valcea</li>
+<li><strong>Russia:</strong> Moscow </li>
+<li><strong>Serbia:</strong> Belgrade</li>
+<li><strong>Slovakia:</strong> Banska Bystrica, Bratislava, Kosice</li>
+<li><strong>Spain:</strong> Almeria, <a href="http://www.festadelamusica.info/principal.asp" target="_blank">Barcelona</a>, Castellon, Gijon, Logrono, Madrid, Malaga, Oviedo,  Saragosse, Valencia, Valladolid</li>
+<li><strong>Switzerland:</strong> <a href="http://www.lafm.ch/news/news.php" target="_blank">Chaux-de-Fond</a>, Ch&#226;tel Staint Denis, Fribourg, <a href="http://w3public.ville-ge.ch/dac/fdm2006.nsf" target="_blank">Geneva</a>, Gland, <a href="http://www.lausanne.ch/viewInt.asp?DomID=64073" target="_blank">Lausanne</a>, Neuch&#226;tel, <a href="http://www.nyon.ch/culture/evenements/fete_musique.html" target="_blank">Nyon</a>, Thun, <a href="http://www.fodge.ch/fetedelamusique" target="_blank">Yverdon les Bains</a>, Vevey </li>
+<li><strong>Turkey:</strong> Ankara, Ismir, Istanbul </li>
+<li><strong>Ukraine:</strong> Kharkiv, Kiev, Rivne</li>
+<li><strong>Vatican City</strong></li>
+</ol>
+
+<p>In just two years, MMNY has become the largest such event outside of Europe.</p>
+
+<p><strong>Did you know?</strong><br/><em>&#8220;F&#234;te de la Musique,&#8221;</em> which translates into English (more or less) as &#8220;Music Party,&#8221; is a homonym of <em>&#8220;Faites de la Musique,&#8221;</em> or &#8220;Make Music.&#8221;</p>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/ras-I.jpg',array('class'=>'floatLeft','height'=>'200'));?><?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/590547732_698d0a4f6a_b.jpg',array('class'=>'floatRight','height'=>'200'));?>

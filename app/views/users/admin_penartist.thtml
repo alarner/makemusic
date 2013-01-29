@@ -1,0 +1,67 @@
+<h3>Make Music New York Admin Tool</h3>
+<br>
+<div id="navcontainer">
+<ul id="navlist">
+<li><a href="<?php echo $this->webroot;?>users/">Home</a></li>
+<li id='active'><a href="<?php echo $this->webroot;?>admin/users/pending" id="current">Pending Performances<?php if ($await_admin){echo " (".count($await_admin).")";}?></a></li>
+<?php if ($all_confirmed){echo"<li><a href='".$this->webroot."admin/users/confirmed' id='current'>Confirmed Performances</a></li>";}?>
+</div>
+<fieldset>
+<?php if ($await_artist) {?>
+<table cellpadding="0" cellspacing="0">
+<thead>
+	<tr><td colspan="6" style=text-align:left><a href='<?php echo $this->webroot;?>admin/users/pending'>Pending Admin Approval</a> - <a href='<?php echo $this->webroot;?>admin/users/penlocation'>Pending Location Approval</a> - <a href='<?php echo $this->webroot;?>admin/users/penboth'>Pending All Approval</a><br><br><h3>Pending Artist Approval</h3>These performances are awaiting approval by the artist<br>You can confirm them once the artist has confirmed.</td></tr>
+</thead>
+<?php
+$pagination->setPaging($paging); // Initialize the pagination variables
+$th = array (
+            '',
+			'Artist',
+			'Location',
+			'Time',
+            'Artist<br>Notes',
+			'Location<br>Notes'
+); // Generate the pagination sort links
+echo $html->tableHeaders($th); // Create the table headers with sort links if desired
+
+foreach ($data as $output)
+{
+ 	$acltype="";
+ 	$lcatype="";
+	if ($output['Artist']['lca'] == '1')
+ 	{
+ 		$lcatype = "<br><small>LCA</small>";
+ 	}
+ 	if ($output['Location']['acl'] == '1')
+ 	{
+ 		$acltype = "<br><small>ACL</small>";
+ 	}
+ 	if ($output['Location']['type'] == 'Park')
+ 	{
+ 		$acltype = "<br><small>PARK</small>";
+ 	}
+ 	$tr = array (
+        $html->link("<small>View</small>",'/admin/performances/view/'.$output['Performance']['id'],"style='float: left'",NULL,false)."<br>".
+		$html->link("<small>Modify</small>",'/admin/performances/edit/'.$output['Performance']['id'],"style='float: left'",NULL,false)."<br>".
+		$html->link("<small>Remove</small>",'/admin/performances/remove/'.$output['Performance']['id'],"style='float: left'",NULL,false),
+ 		$html->link($output['Artist']['groupname'],'/artists/view/'.$output['Artist']['id']).$lcatype,
+        $html->link($output['Location']['locationname'],'/locations/view/'.$output['Location']['id']).$acltype,
+        "<small>".$output['Performance']['start_time'].nl2br("\n-\n").$output['Performance']['end_time']."</small>",
+        "<small>".$output['Performance']['artist_notes']."</small>",
+        "<small>".$output['Performance']['location_notes']."</small>"
+        );
+    echo $html->tableCells($tr,array('class'=>'altRow'),array('class'=>'evenRow'));
+}
+?>
+</table>
+<? echo $this->renderElement('pagination'); // Render the pagination element ?> 
+<?php } if (!$await_artist){?>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td>No Pending Performances Just Yet!</td>
+		</tr>
+	</thead>
+</table>
+<?php } ?>
+</fieldset>

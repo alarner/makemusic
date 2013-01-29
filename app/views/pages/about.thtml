@@ -1,0 +1,20 @@
+<?php $this->pageTitle = 'About'; ?> 
+<?php $this->layout = 'about'; ?>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/i-am-the-heat-reuters.jpg',array('class'=>'floatRight','width'=>'300'));?>
+<h2>About MMNY</h2>
+<p>Now in its fourth year, Make Music New York, &quot;the largest music event ever to grace Gotham&quot; (Metro New York), is a unique festival of free concerts in public spaces throughout the five boroughs of New York City, all on Monday, June 21st, the first day of summer. MMNY takes place simultaneously with similar festivities in more than 327 cities around the world &#8212; a global celebration of music making.</p>
+<p>From 11 in the morning to 10 at night, musicians of all ages, creeds, and musical persuasions &#8212; from hip hop to opera, Latin jazz to punk rock &#8212; perform on streets, sidewalks, stoops, plazas, cemeteries, parks and gardens. From high school bands to marquee names, MMNY is open to anyone who wants to take part, enjoyed by everyone who wants to attend.</p>
+<p>Over 850 MMNY concerts took place in each of the last two years, including:</p>
+<p>&#8226; a Lincoln Square block party, with performances by the NYC Opera, NY Philharmonic, Jazz at Lincoln Center, ASCAP, American Composers Orchestra, and American Opera Projects;</p>
+<p>&#8226; over 120 punk bands throughout Governors Island (nicknamed &quot;Punk Island&quot; for the day);</p>
+<p>&#8226; Bronx middle school jazz bands in Central Park, joined by Roberta Flack;</p>
+<p>&#8226; a piano block party, with four grand pianos in the middle of a West Village street;</p>
+<p>&#8226; jazz block parties with Arturo O&apos;Farrill	&apos;s Latin big band, Grammy-winning trumpeter Roy Hargrove, and African Jazz with pianist Randy Weston;</p>
+<p>&#8226; over 100 local rock bands blanketing Bedford Avenue in Williamsburg;</p>
+<p>&#8226; the East Coast premiere of Henry Brant&apos;s Orbits for 80 trombones at the Guggenheim;</p>
+<p>&#8226; hundreds of guitarists playing Beatles songs in Union Square, a 40-member &quot;Accordion Forest&quot; in Park Slope, and other massive groups assembled by Make Music New York;</p>
+<p>&#8226; French pop star Yannick Noah at Central Park SummerStage;</p>
+<p>&#8226; Tamil Church choirs in Middle Village, high school Christian rock bands in Sunset Park, and a kazoo jam session outside a Morningside Heights church;</p>
+<p>&#8226; special Make Music New York concerts presented by Carnegie Hall, the Metropolitan Opera, BAM, Rubin Museum, Queens Museum of Art, Flushing Town Hall, Jazzmobile, and the New York Mets.</p>
+<p>Special projects in 2010 include the third annual Punk Island, the return of Mass Appeal, a Xenakis series in Central Park, and more to be announced soon.</p>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/1052363567_f9a75d313f_o.jpg',array('class'=>'floatLeft','height'=>'200'));?><?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/jazzitaly.jpg',array('class'=>'floatRight','height'=>'200'));?>

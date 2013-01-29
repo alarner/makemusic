@@ -1,0 +1,80 @@
+/*body {
+background:url(../img/bg.png) repeat-x;
+background-position:top;
+margin:0;
+}*/
+#wrap {
+	max-width:50em;
+	margin:0 auto;
+}
+* html #wrap {width:50em}
+
+.maincontent{background-color:#FFF;}
+
+ul, li{border:0; padding:0; margin:0; list-style:none;}
+
+/* ----------- Navigation ----------- */
+/*#top-navigation{
+background:url(../img/menu/topnav-bg.gif) repeat-x;
+background-position:bottom;
+width:auto;
+height:24px;
+margin:0 auto;
+}
+#navigation{
+background:url(../img/menu/nav-bg.gif) repeat-x;
+height:32px;
+margin:0 auto;
+width:auto;
+}
+#navigation ul{
+height:32px;
+line-height:32px;
+}
+#navigation ul li{
+display:inline;
+}
+#navigation ul li a,
+#navigation ul li a:visited {
+background:url(../img/menu/line-a.gif) right no-repeat;
+padding:0 20px;
+display:block;
+text-decoration:none;
+float:left;
+color:#4261df;
+font-weight:bold;
+text-shadow:#ffffff 2px 2px 2px;
+}
+#navigation ul li a:hover{
+color:#1532a5;
+}
+
+/* ----------- Sub Menu ----------- */
+#sublinks{
+width:auto;
+margin:0 auto;
+background:#888888 url(../img/menu/sublink.gif);
+height:30px;
+font-size:11px;
+}
+#sublinks ul{
+height:32px;
+line-height:31px;
+}
+#sublinks ul li{
+display:inline;
+}
+#sublinks ul li a,
+#sublinks ul li a:visited {
+padding:0 20px;
+display:block;
+text-decoration:none;
+float:left;
+color:#FFFFFF;
+}
+#sublinks ul li a:hover{
+text-decoration:underline;
+}*/
+
+/* ----------- Hide Sub menu ----------- */
+#s2, #s3, #s4, #s5 {display:none;}

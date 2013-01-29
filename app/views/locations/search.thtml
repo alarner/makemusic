@@ -1,0 +1,532 @@
+<h3>Make Music Locations</h3>
+<?php echo $html->formTag('/locations/search') ?>
+<?php echo $html->input('Location/search', array('class'=>'text')); ?>
+<?php echo $html->submit('Search');?>   
+
+<br><small>search by name, address, zip code, or location type</small>
+</form>
+<br>
+<?php 
+
+if (empty($data)) { echo "No results found - try searching for a single word.";
+
+} else { 
+
+?>
+Containing: <b><?php echo $searchterm; ?></b> - <a href='/participate/locations/'>All Locations</a>
+<fieldset>
+<table class="inav" cellpadding="0" cellspacing="0">
+<?php
+$pagination->setPaging($paging); // Initialize the pagination variables
+$th = array (
+            '<strong>Location</strong>',
+			'<strong>Type</strong>',
+			'<strong>Neighborhood</strong>',
+            '<strong>Times Available</strong>',
+			'<strong>Genre(s)</strong>'
+); // Generate the pagination sort links
+
+echo $html->tableHeaders($th); // Create the table headers with sort links if desired
+
+foreach ($data as $output)
+{
+ 				if ($output['Location']['time_midday'] == '1'){$avail = "Mid Day";
+				if ($output['Location']['time_afternoon'] == '1'){$avail = $avail.nl2br("\nAfternoon");}
+				if ($output['Location']['time_lateafter'] == '1'){$avail = $avail.nl2br("\nLate Afternoon");}
+				if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_afternoon'] == '1' && $output['Location']['time_midday'] == '0'){$avail = 'Afternoon';
+				if ($output['Location']['time_lateafter'] == '1'){$avail = $avail.nl2br("\nLate Afternoon");}
+				if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_lateafter'] == '1' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0'){$avail = 'Late Afternoon';
+				if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_evening'] == '1' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0' && $output['Location']['time_lateafter'] == '0'){$avail = 'Evening';}
+ 				if ($output['Location']['time_evening'] == '0' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0' && $output['Location']['time_lateafter'] == '0'){$avail = 'Not Available Anytime';} 				
+
+                $genre = "";
+				$genres = array('blues', 'cabaret', 'classical', 'country', 'electronic', 'experimental', 'folk', 'hiphop', 'jazz', 'kids', 'latin', 'opera', 'pop', 'reggae', 'religious', 'rock', 'soul', 'standards', 'world', 'other');
+				foreach ($genres as $keyword) {
+					if ($output['Location'][$keyword] == '1') {
+						$genre .= $html->link(ucwords($keyword),'/locations/sort/genres/'.$keyword).nl2br("\n");
+					}
+				}
+				if ($genre === "") {
+					$genre = 'No Genre(s)';
+				}
+
+/*	
+	if ($output['Location']['blues'] == '1')
+	{
+		$genre = $html->link('Blues','/locations/sort/genres/blues');
+ 		if ($output['Location']['cabaret'] == '1'){$genre = $genre. nl2br("\n").$html->link('Cabaret','/locations/sort/genres/cabaret');} 			
+  		if ($output['Location']['classical'] == '1'){$genre = $genre. nl2br("\n").$html->link('Classical','/locations/sort/genres/classical');}			
+ 		if ($output['Location']['country'] == '1'){$genre = $genre. nl2br("\n").$html->link('Country','/locations/sort/genres/country');	} 			
+  		if ($output['Location']['electronic'] == '1'){$genre = $genre. nl2br("\n").$html->link('Electronic','/locations/sort/genres/electronic');} 
+ 		if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").$html->link('Experimental','/locations/sort/genres/experimental');} 			
+  		if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 		if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 		if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 		if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  		if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 		if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  		if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 		if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  		if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 		if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  		if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  		if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 		if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  		if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');}  				 	 			}
+ 	if ($output['Location']['blues'] == '0' &&
+ 		 	$output['Location']['cabaret'] == '1')	
+ 		 	{$genre = $html->link('Cabaret','/locations/sort/genres/cabaret');
+ 		 	if ($output['Location']['classical'] == '1'){$genre = $genre. nl2br("\n").$html->link('Classical','/locations/sort/genres/classical');}		
+ 			if ($output['Location']['country'] == '1'){$genre = $genre. nl2br("\n").$html->link('Country','/locations/sort/genres/country');	} 			
+  			if ($output['Location']['electronic'] == '1'){$genre = $genre. nl2br("\n").$html->link('Electronic','/locations/sort/genres/electronic');} 
+ 			if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").$html->link('Experimental','/locations/sort/genres/experimental');} 			
+  			if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '1')
+ 			{$genre = $html->link('Classical','/locations/sort/genres/classical');
+ 			if ($output['Location']['country'] == '1'){$genre = $genre. nl2br("\n").$html->link('Country','/locations/sort/genres/country');	} 			
+  			if ($output['Location']['electronic'] == '1'){$genre = $genre. nl2br("\n").$html->link('Electronic','/locations/sort/genres/electronic');} 
+ 			if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").$html->link('Experimental','/locations/sort/genres/experimental');} 			
+  			if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '1')
+			{$genre = $html->link('Country','/locations/sort/genres/country');
+  			if ($output['Location']['electronic'] == '1'){$genre = $genre. nl2br("\n").$html->link('Electronic','/locations/sort/genres/electronic');} 
+ 			if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").$html->link('Experimental','/locations/sort/genres/experimental');} 			
+  			if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		 
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '1')
+			{$genre = $html->link('Electronic','/locations/sort/genres/electronic');
+ 			if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").$html->link('Experimental','/locations/sort/genres/experimental');} 			
+  			if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		 
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '0' &&
+ 			$output['Location']['experimental'] == '1')
+			{$genre = $html->link('Experimental','/locations/sort/genres/experimental');
+  			if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").$html->link('Folk','/locations/sort/genres/folk');} 			
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '0' &&
+ 			$output['Location']['experimental'] == '0' &&
+ 			$output['Location']['folk'] == '1')
+			{$genre = $html->link('Folk','/locations/sort/genres/folk');
+ 			if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Hip-Hop','/locations/sort/genres/hiphop');}
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '0' &&
+ 			$output['Location']['experimental'] == '0' &&
+ 			$output['Location']['folk'] == '0' &&
+ 			$output['Location']['hiphop'] == '1')
+			{$genre = $html->link('Hip-Hop','/locations/sort/genres/hiphop');
+ 			if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").$html->link('Jazz','/locations/sort/genres/jazz');}
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '0' &&
+ 			$output['Location']['experimental'] == '0' &&
+ 			$output['Location']['folk'] == '0' &&
+ 			$output['Location']['hiphop'] == '0' &&
+ 			$output['Location']['jazz'] == '1')
+			{$genre = $html->link('Jazz','/locations/sort/genres/jazz');
+ 			if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").$html->link('Kids','/locations/sort/genres/kids');} 			
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 			$output['Location']['cabaret'] == '0' &&
+ 			$output['Location']['classical'] == '0' &&
+ 			$output['Location']['country'] == '0' &&
+ 			$output['Location']['electronic'] == '0' &&
+ 			$output['Location']['experimental'] == '0' &&
+ 			$output['Location']['folk'] == '0' &&
+ 			$output['Location']['hiphop'] == '0' &&
+ 			$output['Location']['jazz'] == '0' &&
+ 			$output['Location']['kids'] == '1')
+			{$genre = $html->link('Kids','/locations/sort/genres/kids');
+  			if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").$html->link('Latin','/locations/sort/genres/latin');} 			
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		 $output['Location']['experimental'] == '0' &&
+ 		 $output['Location']['folk'] == '0' &&
+ 		 $output['Location']['hiphop'] == '0' &&
+ 		 $output['Location']['jazz'] == '0' &&
+ 		 $output['Location']['kids'] == '0' &&
+ 		 $output['Location']['latin'] == '1')
+			{$genre = $html->link('Latin','/locations/sort/genres/latin');
+ 			if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").$html->link('Opera','/locations/sort/genres/opera');} 			
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '1')
+			{$genre = $html->link('Opera','/locations/sort/genres/opera');
+  			if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").$html->link('Pop','/locations/sort/genres/pop');} 
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '1')
+			{$genre = $html->link('Pop','/locations/sort/genres/pop');
+ 			if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").$html->link('Reggae','/locations/sort/genres/reggae');} 			
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	} 		  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '1')
+			{$genre = $html->link('Reggae','/locations/sort/genres/reggae');
+  			if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").$html->link('Religious','/locations/sort/genres/religious');} 			
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '1')
+			{$genre = $html->link('Religious','/locations/sort/genres/religious');
+ 			if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").$html->link('Rock','/locations/sort/genres/rock');}			
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '1')
+			{$genre = $html->link('Rock','/locations/sort/genres/rock');
+  			if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").$html->link('Soul','/locations/sort/genres/soul');}
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '0' &&
+ 		$output['Location']['soul'] == '1')
+			{$genre = $html->link('Soul','/locations/sort/genres/soul');
+  			if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").$html->link('Standards','/locations/sort/genres/standards');} 			
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '0' &&
+ 		$output['Location']['soul'] == '0' &&
+ 		$output['Location']['standards'] == '1')
+			{$genre = $html->link('Standards','/locations/sort/genres/standards');
+ 			if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").$html->link('World','/locations/sort/genres/world');} 			
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '0' &&
+ 		$output['Location']['soul'] == '0' &&
+ 		$output['Location']['standards'] == '0' &&
+ 		$output['Location']['world'] == '1')
+			{$genre = $html->link('World','/locations/sort/genres/world');
+  			if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").$html->link('Other','/locations/sort/genres/other');} 
+ 		 	}	  		 	
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '0' &&
+ 		$output['Location']['soul'] == '0' &&
+ 		$output['Location']['standards'] == '0' &&
+ 		$output['Location']['world'] == '0' &&
+ 		$output['Location']['other'] == '1')
+ 			{$genre = $html->link('Other','/locations/sort/genres/other');}
+ 		if ($output['Location']['blues'] == '0' &&
+ 		$output['Location']['cabaret'] == '0' &&
+ 		$output['Location']['classical'] == '0' &&
+ 		$output['Location']['country'] == '0' &&
+ 		$output['Location']['electronic'] == '0' &&
+ 		$output['Location']['experimental'] == '0' &&
+ 		$output['Location']['folk'] == '0' &&
+ 		$output['Location']['hiphop'] == '0' &&
+ 		$output['Location']['jazz'] == '0' &&
+ 		$output['Location']['kids'] == '0' &&
+ 		$output['Location']['latin'] == '0' &&
+ 		$output['Location']['opera'] == '0' &&
+ 		$output['Location']['pop'] == '0' &&
+ 		$output['Location']['reggae'] == '0' &&
+ 		$output['Location']['religious'] == '0' &&
+ 		$output['Location']['rock'] == '0' &&
+ 		$output['Location']['soul'] == '0' &&
+ 		$output['Location']['standards'] == '0' &&
+ 		$output['Location']['world'] == '0' &&
+ 		$output['Location']['other'] == '0')
+ 			{$genre = 'No Genre(s)';}
+ */				
+ 	
+ 	$tr = array (
+        $html->link($output['Location']['locationname'],'/locations/view/'.$output['Location']['id']),
+        $html->link($output['Location']['type'], '/locations/sort/types/'.substr($output['Location']['type'],0,3)),
+        $html->link($output['Location']['hood'], '/locations/sort/neighborhoods/'.str_replace(" ","_",$output['Location']['hood'])),
+        $avail,
+        $genre
+        );
+    echo $html->tableCells($tr,array('class'=>'altRow'),array('class'=>'evenRow'));
+	}
+}
+?>
+</table>
+<? echo $this->renderElement('pagination'); // Render the pagination element ?>
+</fieldset>

@@ -1,0 +1,87 @@
+<h3>Welcome to Make Music New York!</h3>
+<br>
+ <!--USER INFORMATION -FOR ALL USERS-->
+<div id="navcontainer">
+<ul id="navlist">
+<li id="active"><a href="<?php echo $this->webroot;?>users/"id="current">My User</a></li>
+<?php if ($has_artist){echo"<li><a href='".$this->webroot."users/artist'>My Artist</a></li>";}?>
+<?php if ($has_location){echo"<li><a href='".$this->webroot."users/location'>My Location</a></li>";}?>
+<?php if ($confirmed_locations || $confirmed_artists){echo"<li><a href='".$this->webroot."users/confirmed'>Confirmed Performances</a></li>";}?>
+<?php if ($pending_locations || $pending_artists || $your_locations || $your_artists){ ?><li><a href='<?php echo $this->webroot;?>users/pending'>Pending Performances<?php if ($your_locations){echo " (".count($your_locations).")";} if ($your_artists){echo " (".count($your_artists).")";} ?></a></li><? }?>
+</ul>
+</div>
+<fieldset>
+<table cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<td style=text-align:left><h3>My User Information</h3></td>
+			<td style=text-align:right><small><?php echo $html->link('Update Profile','/users/edit/'.$User['id']); ?></small>
+</td>
+		</tr>
+		<tr class="altRow">
+			<th colspan="2"><center><h3><?php echo $User['first_name'].' '.$User['last_name'];?> - <?php echo $User['emailaddress'];?></h3></center></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if ($create){echo nl2br("<tr><td colspan='2'><div class='notice'><center>You have yet to create your ". ucwords($user_type)." Profile\n".$html->link('Click here to create your '.ucwords($user_type), '/'.$user_type.'s/create')."</td></tr>")."</center></div>";} ?>
+		<tr>
+			<td colspan="2"><center><?php echo nl2br($User['street_add1'] ." ". $User['street_add2']."\n".$User['city'] .", ". $User['state'] ." ". $User['zip_code']); ?>
+			<br><?php echo "(".$html->link('Map','http://maps.google.com/?q='.$User['street_add1'] ." ". $User['street_add2'].", ".$User['city'] .", ". $User['state'] ." ". $User['zip_code'],"target='_blank'").")"; ?>
+			</center></td>
+		</tr>
+		<tr class="altRow">
+			<td><b>Contact Preference</b><br>
+			 <?php if ($User['contact'] == 'B'){echo 'Phone and Email';} if ($User['contact'] == 'P'){echo 'Phone Only';} if ($User['contact'] == 'E'){echo 'Email Only';} ?>
+			 <br><br><b>Newsletter Subscription</b><br>
+			 <?php if ($User['newsletter_status'] == '1'){	echo 'Subscribed';}else{echo 'Unsubscribed';}?>
+ 			</td>
+			<td><b>Contact Information</b><br><?php echo $User['first_name'].' '.$User['last_name'];?><br><?php
+	if ($User['contact'] == 'B')
+		{
+		echo nl2br("Email: ".$html->link($User['emailaddress'], 'mailto:'.$User['emailaddress'])."\n");
+		if (empty($User['ph_mobile']) && empty($User['ph_primary']))
+			{
+			echo nl2br("No Phone Provided\nUse Email Address Above");
+			}
+		if (!empty($User['ph_primary']) && !empty($User['ph_mobile']))
+			{
+			echo nl2br("Primary Phone: (".substr($User['ph_primary'],0,3).") ".substr($User['ph_primary'],3,3)."-".substr($User['ph_primary'],6,4)."\nMobile Phone: (".substr($User['ph_mobile'],0,3).") ".substr($User['ph_mobile'],3,3)."-".substr($User['ph_mobile'],6,4));
+			}
+		if (!empty($User['ph_primary']) && empty($User['ph_mobile']))
+			{
+			echo "Primary Phone: (".substr($User['ph_primary'],0,3).") ".substr($User['ph_primary'],3,3)."-".substr($User['ph_primary'],6,4);
+			}
+		if (empty($User['ph_primary']) && !empty($User['ph_mobile']))
+			{
+			echo "Mobile Phone: (".substr($User['ph_mobile'],0,3).") ".substr($User['ph_mobile'],3,3)."-".substr($User['ph_mobile'],6,4);
+			}
+		}
+	if ($User['contact'] == 'E')
+		{
+		echo nl2br("Email: ".$html->link($User['emailaddress'], 'mailto:'.$User['emailaddress'])."\n");
+		}
+	if ($User['contact'] == 'P')
+		{
+		if (empty($User['ph_mobile']) && empty($User['ph_primary']))
+			{
+			echo nl2br("No Phone Provided\n"."Email: ".$html->link($User['emailaddress'], 'mailto:'.$User['emailaddress']));
+			}
+		if (!empty($User['ph_primary']) && !empty($User['ph_mobile']))
+			{
+			echo nl2br("Primary Phone: (".substr($User['ph_primary'],0,3).") ".substr($User['ph_primary'],3,3)."-".substr($User['ph_primary'],6,4)."\nMobile Phone: (".substr($User['ph_mobile'],0,3).") ".substr($User['ph_mobile'],3,3)."-".substr($User['ph_mobile'],6,4));
+			}
+		if (!empty($User['ph_primary']) && empty($User['ph_mobile']))
+			{
+			echo "Primary Phone: (".substr($User['ph_primary'],0,3).") ".substr($User['ph_primary'],3,3)."-".substr($User['ph_primary'],6,4);
+			}
+		if (empty($User['ph_primary']) && !empty($User['ph_mobile']))
+			{
+			echo "Mobile Phone: (".substr($User['ph_mobile'],0,3).") ".substr($User['ph_mobile'],3,3)."-".substr($User['ph_mobile'],6,4);
+			}
+		}
+?>
+			</td>
+		</tr>
+		</tbody>
+</table>
+</fieldset>

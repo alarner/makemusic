@@ -1,0 +1,261 @@
+<h3>MMNY User Registration</h3>
+<p>Please fill out the form below to register for MMNY.</p>
+<?php echo $html->formTag('/users/register') ?>
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Login Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0" style=text-align:left>
+		<tbody align="left">
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label>Registration Type</label>
+					<?php echo $html->selectTag('User/user_type', array('' => 'Select', '160'=>'Artist','180'=>'Location'),  null, array(), null, false, false); ?><br>
+					<small>Please sign up as either an artist or a location. If you have both, sign up as a location; you'll be able to add your artist information later on.</small> 
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('User/user_type', '<br><div class="error">You must be either an Artist or a Location</div>') ?>
+				</td>
+			</tr>
+			<tr>
+				<td width="175" style=text-align:left>
+					<label for="name">Email Address</label><br>
+                    <?php echo $html->input('User/emailaddress', array('class'=>'text')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="name">Confirm Email</label><br>
+                    <?php echo $html->input('User/emailaddress2', array('class'=>'text')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('User/emailaddress', '<br><div class="error">'.$emailaddress_error.'</div>') ?>
+					<?php echo $html->tagErrorMsg('User/emailaddress2', '<br><div class="error">'.$emailaddress_error.'</div>') ?>
+				</td>
+			</tr>
+			<tr>
+				<td width="175" style=text-align:left>
+					<label for="name">Password</label><br>
+                    <?php echo $html->passwordTag('User/password', array('class'=>'text')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="name">Confirm Password</label><br>
+                    <?php echo $html->passwordTag('User/password2', array('class'=>'text')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('User/password', '<br><div class="error">'.$password_error.'</div>') ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+
+<fieldset>
+	<legend>Personal Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody align="left">
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label for="salutation">Salutation</label><br>
+					<?php echo $html->selectTag('User/salutation', array('Mr'=>'Mr','Mrs'=>'Mrs','Ms'=>'Ms'), array('value' => 'Mr')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="name">First Name</label><br>
+                    <?php echo $html->input('User/first_name', array('class'=>'text')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="name">Last Name</label><br>
+                    <?php echo $html->input('User/last_name', array('class'=>'text')) ?>
+				</td style=text-align:left>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('User/first_name', '<br><div class="error">First and Last Names required</div>') ?>
+				</td>
+			</tr>
+			<tr>
+			<td style=text-align:left>
+				<label for="street_add1">Street Address 1</label> 
+				<?php echo $html->input('User/street_add1', array('class'=>'text')) ?> 
+			</td>
+			<td style=text-align:left>
+				<label for="street_add2" class="opt">Street Address 2</label> 
+				<?php echo $html->input('User/street_add2', array('class'=>'text')) ?>
+			</td>
+			</tr>
+			<tr>
+			<td style=text-align:left>
+				<label for="city">City</label> 
+				<?php echo $html->input('User/city', array('class'=>'text')) ?> 
+			</td>
+			<td style=text-align:left>
+				<label for="state">State</label> 
+				<?php echo $html->selectTag('User/state',  array(
+				'AL' => 'Alabama',
+				'AK' => 'Alaska',
+				'AZ' => 'Arizona',
+				'AR' => 'Arkansas',
+				'CA' => 'California',
+				'CO' => 'Colorado',
+				'CT' => 'Connecticut',
+				'DE' => 'Delaware',
+				'DC' => 'District of Columbia',
+				'FL' => 'Florida',
+				'GA' => 'Georgia',
+				'HI' => 'Hawaii',
+				'ID' => 'Idaho',
+				'IL' => 'Illinois',
+				'IN' => 'Indiana',
+				'IA' => 'Iowa',
+				'KS' => 'Kansas',
+				'KY' => 'Kentucky',
+				'LA' => 'Louisiana',
+				'ME' => 'Maine',
+				'MD' => 'Maryland',
+				'MA' => 'Massachusetts',
+				'MI' => 'Michigan',
+				'MN' => 'Minnesota',
+				'MS' => 'Mississippi',
+				'MO' => 'Missouri',
+				'MT' => 'Montana',
+				'NE' => 'Nebraska',
+				'NV' => 'Nevada',
+				'NH' => 'New Hampshire',
+				'NJ' => 'New Jersey',
+				'NM' => 'New Mexico',
+				'NY' => 'New York',
+				'NC' => 'North Carolina',
+				'ND' => 'North Dakota',
+				'OH' => 'Ohio',
+				'OK' => 'Oklahoma',
+				'OR' => 'Oregon',
+				'PA' => 'Pennsylvania',
+				'RI' => 'Rhode Island',
+				'SC' => 'South Carolina',
+				'SD' => 'South Dakota',
+				'TN' => 'Tennessee',
+				'TX' => 'Texas',
+				'UT' => 'Utah',
+				'VT' => 'Vermont',
+				'VA' => 'Virginia',
+				'WA' => 'Washington',
+				'WV' => 'West Virginia',
+				'WI' => 'Wisconsin',
+				'WY' => 'Wyoming'), 'NY', null, null, false, false); ?> 
+			</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label for="name">Zip Code</label><br>
+                    <?php echo $html->input('User/zip_code', array('class'=>'text','maxlength'=>'5')) ?>
+					<?php echo $html->tagErrorMsg('User/zip_code', '<br><div class="error">'.$zip_code_error.'</div>') ?><br>
+				</td>
+			</tr>
+		</tbody>
+	</table>					
+</fieldset
+
+<fieldset>
+	<legend>Contact Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody align="left">
+			<tr>
+				<td style=text-align:left>
+					<label for="ph_primary">Primary Phone</label><br>
+					<?php echo $html->input('User/phpri1', array('size'=>'3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('User/phpri2', array('size' => '3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('User/phpri3', array('size' => '4','maxlength'=>'4','class'=>'ph4')) ?>
+				</td>
+				<td style=text-align:left>
+					<label for="ph_mobile" class="opt">Mobile Phone:</label><br>
+					<?php echo $html->input('User/phmob1', array('size' => '3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('User/phmob2', array('size' => '3','maxlength'=>'3','class'=>'ph3')).'-'.$html->input('User/phmob3', array('size' => '4','maxlength'=>'4','class'=>'ph4')) ?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('User/ph_primary', '<br><div class="error">.At least 1 Phone Number is Required</div>') ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label for="contact">Contact Preference</label><br>
+					<?php echo $html->radio('User/contact', array('E'=>'Email','P'=>'Phone','B'=>'Both'), '' , array('value' => 'B')) ?>
+				</td>
+<!--				<td>
+					<label for="newsletter_status" class="opt">MMNY Newsletter:</label><br>
+					<?php echo $html->checkboxTag('User/newsletter_status', 'Newsletter', array('value'=>'1', 'checked'=>'checked') ,'').' Subscribe' ?> 
+				</td>    -->
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+
+<fieldset>
+	<legend>User Agreement</legend>
+	<iframe id="agreementIfram" src ="<?php echo $this->webroot;?>useragreement.php" width="350" frameborder="0" height="200" ></iframe>
+	<table>
+		<tbody>
+			<tr>
+				<td style=text-align:left>
+					<br>
+					<?php echo $html->checkboxTag('User/agree', 'User Agreement', array('value'=>'1') ,'').' I have read and agree to the MMNY Terms and Conditions.' ?> 
+					<?php echo $html->tagErrorMsg('User/agree', '<br><div class="error">'.$agree_error.'</div>') ?>
+					<?php echo $html->hiddenTag('User/rand', rand(1111111111, 9999999999)) ?>
+					<?php echo $html->hiddenTag('User/hash') ?>
+					<?php echo $html->hiddenTag('User/ph_primary') ?>
+					<?php echo $html->hiddenTag('User/ph_mobile') ?>    
+					<?php echo $html->hiddenTag('User/newsletter_status', '1') ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>		
+<p class="buttons">
+	<button type="submit" class="button positive">
+   		<?php echo $html->image('icons/accept.png') ?> Submit
+   	</button>
+    <button type="button" class="button negative"
+        onclick="if(confirm('Are you sure you want to cancel?')){history.back();}">
+        <?php echo $html->image('icons/cancel.png') ?> Cancel
+    </button>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+	<div class="notes">
+		<h4><b>Login Information</b></h4>
+        <p>Please enter your full email address, for example, <strong>name@domain.com</strong>. This will be your login for MMNY.</p>
+        <p>Your password must be at least 6 characters long and is case-sensitive. Please do not enter accented characters.</p>
+        <p class="last">Your password will be encrypted and stored in our system.  Due to the encryption, we <strong>cannot</strong> retrieve your password for you.  If you lose or forget your password, we offer the ability to reset it.</p>
+	</div>
+	<br>
+	<div class="notes">
+		<h4><b>Personal Information</b></h4>
+		<p>Please enter your name and address.</p>
+		<p>Other Artists/Locations will be able to see your name to contact you about a performance.</p>
+		<p>Ultimately, we will need your address to secure the permits for your concert. This information is required.</p>
+		<p class="last">Your address will not be shared or used to send you junk mail.</p>
+	</div>
+	<br>
+	<div class="notes">
+        <h4><b>Contact Information</b></h4>
+        <p>Please enter a phone number, so that we can contact you with any questions about your performance.</p>
+        <p>Choose whether you want your phone number, your email address, or both to be visible to other Artists/Locations who wish to contact you about a performance.</p>
+        <p>Your contact information will only be visible when you indicate, on a following page, that you have available performance times that are not yet booked.</p>
+        <p class="last">Your phone number will not be shared or used for telemarketing. Your information is protected by our <a href="http://makemusicny.org/privacy-policy/" title="View our Privacy Policy">Privacy Policy</a>.</p>
+      </div>
+ </div>
+</div>

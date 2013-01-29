@@ -1,0 +1,163 @@
+<h3>Create Your Own Performance Artist</h3>
+<p>Enter your Artist and Performance information below.</p>
+<?php echo $html->formTag('/users/ownartist') ?> 
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Artist Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label for="groupname">Group or Solo Name</label><br>
+					<?php echo $html->input('Artist/groupname', array('class'=>'text')) ?> 
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<?php echo $html->tagErrorMsg('Artist/groupname', "<div class='error'>You must enter a group name or your name.</div>") ?>
+				</td>
+			</tr>
+			<tr>
+				<td style=text-align:left>
+					<label class="opt">Artist Website</label><br>
+					<?php echo $html->input('Artist/website', array('class'=>'text')) ?><br>
+					<small>www.artist.com</small>
+				</td>
+				<td style=text-align:left>
+					<label class="opt">Artist MySpace</label><br>
+					<?php echo $html->input('Artist/myspace', array('class'=>'text')) ?><br>
+					<small>www.myspace.com/artist</small>
+				</td style=text-align:left>
+			</tr>
+			<tr>
+			<td colspan="2"></td>
+			</tr>			
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Artist Description</label><br>
+					<?php echo $html->textarea('Artist/description', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Give a brief description of your music.</small>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Artist Preferences</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label for="genres" class="opt">Genre(s) Playing</label><br>
+					<?php echo $html->selectTag('Artist/genre1', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+					<?php echo $html->selectTag('Artist/genre2', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+					<?php echo $html->selectTag('Artist/genre3', array('blues'=>'Blues','cabaret'=>'Cabaret','classical'=>'Classical','country'=>'Country','electronic'=>'Electronic','experimental'=>'Experimental','folk'=>'Folk','hiphop'=>'Hip-Hop','jazz'=>'Jazz','kids'=>'Kids','latin'=>'Latin','opera'=>'Opera','pop'=>'Pop','reggae'=>'Reggae','religious'=>'Religious','rock'=>'Rock','soul'=>'Soul','standards'=>'Standards','world'=>'World','other'=>'Other',)) ?>
+				</td>
+			</tr>
+			<tr>
+			<td colspan="2"></td>
+			</tr>
+			<tr>
+				<td style=text-align:left colspan="2">
+					<label>Electricity Requirements</label><br>
+					<?php echo $html->radio('Artist/electricity', array('0'=>'<small>Require electricity from location</small>','1'=>'<small>Can provide own electricty</small>','2'=>'<small>Will not use electricty</small>'), '<br style="clear:both;"/>',array('value' => '0')) ?> 
+					<?php echo $html->tagErrorMsg('Artist/electricity', 'Invalid') ?>
+				</td>
+			</tr>
+			<tr><td colspan="2"></td></tr>
+			<tr>
+				<td style=text-align:left colspan="2">
+					<label class="opt">Promotion:</label><br>
+					<?php echo $html->textarea('Artist/promote', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>What you will do to promote this event.</small>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>
+<fieldset>
+	<legend>Performance Information</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td style=text-align:left>
+					<label>Start Time</label><br>
+					<?php echo $html->selectTag('Performance/start_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '1'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/start_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/start_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+				<td style=text-align:left>
+					<label>End Time</label><br>
+					<?php echo $html->selectTag('Performance/end_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '2'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/end_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/end_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Notes:</label><br>
+					<?php echo $html->textarea('Performance/location_notes', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Enter in any information about your performance.</small>
+					<?php echo $html->hiddenTag('Artist/user_id') ?>
+					<?php echo $html->hiddenTag('Artist/blues') ?>
+					<?php echo $html->hiddenTag('Artist/cabaret') ?>
+					<?php echo $html->hiddenTag('Artist/classical') ?>
+					<?php echo $html->hiddenTag('Artist/country') ?>
+					<?php echo $html->hiddenTag('Artist/electronic') ?>
+					<?php echo $html->hiddenTag('Artist/experimental') ?>
+					<?php echo $html->hiddenTag('Artist/hiphop') ?>
+					<?php echo $html->hiddenTag('Artist/jazz') ?>
+					<?php echo $html->hiddenTag('Artist/kids') ?>
+					<?php echo $html->hiddenTag('Artist/latin') ?>
+					<?php echo $html->hiddenTag('Artist/opera') ?>
+					<?php echo $html->hiddenTag('Artist/pop') ?>
+					<?php echo $html->hiddenTag('Artist/reggae') ?>
+					<?php echo $html->hiddenTag('Artist/religious') ?>										
+					<?php echo $html->hiddenTag('Artist/rock') ?>
+					<?php echo $html->hiddenTag('Artist/soul') ?>
+					<?php echo $html->hiddenTag('Artist/standards') ?>
+					<?php echo $html->hiddenTag('Artist/world') ?>
+					<?php echo $html->hiddenTag('Artist/other') ?>
+					<?php echo $html->hiddenTag('Artist/lca', '1') ?>
+					<?php echo $html->hiddenTag('Performance/lca', '1') ?>
+					<?php echo $html->hiddenTag('Performance/location_confirmed', '1') ?>
+					<?php echo $html->hiddenTag('Performance/artist_confirmed', '1') ?>
+					<?php echo $html->hiddenTag('Performance/location_id', $Location['id']) ?>
+					<?php echo $html->hiddenTag('Performance/artist_id') ?>
+					<?php echo $html->hiddenTag('Performance/start_time') ?>
+					<?php echo $html->hiddenTag('Performance/end_time') ?>												
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>	
+<p class="buttons">
+	<button type="submit" class="button positive">
+   		<?php echo $html->image('icons/accept.png') ?> Submit
+   	</button>
+   	<a class="button negative" href="../">
+   		<?php echo $html->image('icons/cancel.png') ?> Cancel
+   	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+	<div class="notes">
+        <h4><b>Artist Information</b></h4>
+        <p>Your Group or Solo name is required. If your name is the same as your artist name you must enter it again.</p>
+        <p class="last">Please enter your website and MySpace URL as stated below the fields.</p>
+      </div>
+      <br>
+      	<br>
+	<div class="notes">
+		<h4><b>Artist Preferences</b></h4>
+		<p class="last">Please choose up to three genres that describe your music. If you do not select any genres, the Other genre will be given to you by default.</p>
+	</div>
+</div>
+</div>

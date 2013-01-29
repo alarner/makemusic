@@ -1,0 +1,21 @@
+<?
+foreach ($data as $csvdata) {          
+	$line = array();
+	 foreach ($csvdata['Performance'] as $k=>$v) {
+		$line[] = $k;
+	}                
+	$line[] = nl2br("\n");
+}
+$csv->addRow($line); 
+
+foreach ($data as $csvdata) {          
+	$line = array();                
+	 foreach ($csvdata['Performance'] as $k=>$v) {
+		$line[] = $v;
+	}                
+	$line[] = nl2br("\n");
+	$csv->addRow($line); 
+}
+
+echo $csv->render('Performances.csv'); 
+?>

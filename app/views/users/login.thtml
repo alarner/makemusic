@@ -1,0 +1,54 @@
+<h3>MMNY User Login</h3>
+<p>Please log in below.</p>
+<?php echo $html->formTag('/users/login') ?>
+<div class="container">
+<div class="column span-10">
+<fieldset>
+	<legend>Login Information</legend>
+	<br>
+	<table>
+		<tr>
+			<td colspan="2">
+				<?php if ($activation_error){echo '<br><br><div class="error">'.$html->link('Click Here to resend Account Activation Email.', '/users/resend').'</div>';}?>
+				<?php if ($type_error){echo '<br><br><div class="error">Registration is Closed.  Sorry!</div>';}?>
+				<?php if ($pw_error){echo '<br><br><div class="error">Please make sure you typed everything correctly.</div>';}?>				
+
+			</td>
+		</tr>
+		<tr>			
+			<td style=text-align:left>
+				<label for="emailaddress">Email Address</label> 
+				<?php echo $html->input('User/emailaddress', array('class'=>'text')) ?> 
+			</td>
+			<td>
+				<label for="password">Password</label> 
+				<?php echo $html->passwordTag('User/password', array('class'=>'text')) ?>			
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style=text-align:left>
+				<?php echo $html->tagErrorMsg('User/password', '<br><div class="error">'.$password_error.'</div>') ?>
+			</td>
+		</tr>
+	</table>
+</fieldset>
+<p class="buttons">
+	<button type="submit" class="button login">
+   		<?php echo $html->image('icons/key.png') ?> Login
+   	</button>
+    <button type="button" class="button negative"
+        onclick="if(confirm('Are you sure you want to cancel?')){history.back();}">
+        <?php echo $html->image('icons/cancel.png') ?> Cancel
+    </button>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+	<div class="notes">
+		<h4><b>Login Information</b></h4>
+		<p>Please enter your email address and password.</p>
+		<p>Passwords are at least 6 characters long and are case-sensitive.</p>
+		<p class="last">Your password has been encrypted and stored in our system.  Due to the encryption, we <strong>cannot</strong> retrieve your password for you.  If you lose or forget your password, we offer the ability to reset it. <a href="<?php echo $this->webroot;?>users/reset" title="Reset Your Password">Click Here</a></p>
+	</div>
+</div>
+</div>	

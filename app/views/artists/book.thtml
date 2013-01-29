@@ -1,0 +1,70 @@
+<h3>Request a Performance with:</h3>
+<p><strong><?php echo $Artist['groupname'] ?></strong></p>
+<?php if ($Artist['electricity'] == '0'){
+	if ($Location['electricity'] == '1'){
+	echo "<div class='notice'><b>Please note the following:</b><br>Your Location does not provide electricty. This Artist requires electricty from a Location.<br><b>You can continue with the request or ".
+	$html->link('Find another Artist','/artists/')."</b></div><br>";
+	} if ($Location['electricity'] == '2'){
+	echo "<div class='notice'><b>Please note the following:</b><br>No electricity can be used at your Location. This Artist requires electricty from a Location.<br><b>You can continue with the request or ".$html->link('Find another Artist','/artists/')."</b></div><br>";}}?>
+<?php echo $html->formTag('/artists/book/'.$Artist['id']) ?>
+<div class="container">          
+	<div class="column span-10">
+	<fieldset>
+		<legend>Performance Location</legend>
+	<?php //echo $html->selectTag('Performance/location_id',$Locations[0]);   ?>
+	<select name="data[Performance][location_id]"  id="PerformanceLocationId">    
+		<option value="" >&nbsp;</option> 
+	<?php      
+	foreach ($Locations as $location) {
+		echo "		<option value=\"".$location["locations"]['id']."\" >".$location["locations"]['locationname']."</option>";		                   
+	}
+	?>
+	</select>
+	</fieldset>
+</div>
+<div class="column span-10">
+<fieldset>
+	<legend>Performance Request</legend>
+	<small>Bold Fields Required</small>
+	<br>
+	<br>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tbody>
+			<tr>
+				<td style=text-align:left>
+					<label>Start Time</label><br>
+					<?php echo $html->selectTag('Performance/start_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '1'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/start_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/start_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+				<td style=text-align:left>
+					<label>End Time</label><br>
+					<?php echo $html->selectTag('Performance/end_hour',array('1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12'),array('value' => '2'),array('width'=>'50','style'=>'width: 50px'),'',false)?>:<?php echo $html->selectTag('Performance/end_min',array('00'=>'00','15'=>'15','30'=>'30','45'=>'45'),array('value' => '00'),array('width'=>'50','style'=>'width: 50px'),'',false)?> <?php echo $html->selectTag('Performance/end_ampm',array('PM'=>'PM','AM'=>'AM'),array('value' => 'PM'),array('width'=>'50','style'=>'width: 50px'),'',false)?>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style=text-align:left>
+					<label class="opt">Your Message:</label><br>
+					<?php echo $html->textarea('Performance/location_notes', array('cols' => '60', 'rows' => '5'));?><br>
+					<small>Enter in any information about your Location and Performance that you would like the Artist to see.</small>
+					<?php echo $html->hiddenTag('Performance/artist_confirmed', '0') ?>
+					<?php echo $html->hiddenTag('Performance/location_confirmed', '1') ?>
+					<?php echo $html->hiddenTag('Performance/artist_id', $Artist['id']) ?>
+					<?php echo $html->hiddenTag('Performance/start_time') ?>
+					<?php echo $html->hiddenTag('Performance/end_time') ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>	
+<p class="buttons">
+	<button type="submit" class="button positive">
+   		<?php echo $html->image('icons/accept.png') ?> Submit
+   	</button>
+   	<a class="button negative" href="../">
+   		<?php echo $html->image('icons/cancel.png') ?> Cancel
+   	</a>
+</p>
+</form>
+</div>
+<div class="column span-6 last">
+</div>
+</div>

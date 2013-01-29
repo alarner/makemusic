@@ -1,0 +1,131 @@
+<?php $this->pageTitle = 'Frequently Asked Questions'; ?> 
+<?php $this->layout = 'faq'; ?>
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/hiphop1.jpg',array('class'=>'floatRight','width'=>'150'));?>
+<h2>Frequently Asked Questions</h2>
+<p>
+	1. <a href="#what">What is Make Music New York?</a> <a href="#what">&#187;</a><br/>
+	2. <a href="#idea">Where did the idea come from?</a> <a href="#idea">&#187;</a><br/>
+	3. <a href="#participate">Who can participate?</a> <a href="#participate">&#187;</a><br/>
+	4. <a href="#signup">How do I sign up to perform / host a concert?</a> <a href="#signup">&#187;</a><br/>
+	5. <a href="#where">Where will the musicians play?</a> <a href="#where">&#187;</a><br/>
+	6. <a href="#friends">How do I sign up to perform with my friends? How do I curate a show with multiple artists?</a> <a href="#friends">&#187;</a> <br/>
+	7. <a href="#locations">How do I register more than one location on the website?</a> <a href="#locations">&#187;</a><br/>
+	8. <a href="#noband">What if I play an instrument, but don&apos;t have my own band?</a> <a href="#noband">&#187;</a><br/>
+	9. <a href="#paid">Will musicians be paid to perform?</a> <a href="#paid">&#187;</a><br/>
+	10. <a href="#provide">Who will provide a stage / backline / tuned grand piano / etc for my concert?</a> <a href="#provide">&#187;</a><br/>
+	11. <a href="#late">How late in the evening can my performance go?</a> <a href="#late">&#187;</a><br/>
+	12. <a href="#close">How can I close my street for a block party concert?</a> <a href="#close">&#187;</a><br/>
+	13. <a href="#sell">Can MMNY performers sell CDs, or ask for donations?</a> <a href="#sell">&#187;</a><br/>
+	14. <a href="#promote">What will MMNY do to help promote my concert?</a> <a href="#promote">&#187;</a><br/>
+	15. <a href="#rain">What happens if it rains?</a> <a href="#rain">&#187;</a><br/>
+	16. <a href="#no">Can I charge admission for a Make Music New York concert? Can my concert be &#8220;invitation only&#8221;? Can I perform outside the five boroughs? Can I create a MMNY event that does not include any live music? Can I have my event indoors?</a> <a href="#no">&#187;</a><br/>
+	17. <a href="#backout">What if my band signs up now, and has to back out later?</a> <a href="#backout">&#187;</a><br/>
+	18. <a href="#annual">Is this an annual event?</a> <a href="#annual">&#187;</a><br/>
+	19. <a href="#who">Who puts this all together?</a> <a href="#who">&#187;</a><br/>
+	20. <a href="#volunteer">How can I get involved as a volunteer?</a> <a href="#volunteer">&#187;</a><br/>
+	21. <a href="#donate">Where can I donate to Make Music New York?</a> <a href="#donate">&#187;</a> 
+</p>
+<br>
+
+<br><h3><a name="what"></a>What is Make Music New York?</h3>
+<p>Now in its fourth year, Make Music New York, &quot;the largest music event ever to grace Gotham&quot; (Metro New York), is a unique festival of free concerts in public spaces throughout the five boroughs of New York City, all on Monday, June 21st, the first day of summer. MMNY takes place simultaneously with similar festivities in more than 327 cities around the world &#8212; a global celebration of music making.</p>
+<p>From 11 in the morning to 10 at night, public spaces throughout the five boroughs &#8212; sidewalks, parks, community gardens, and more &#8212; become impromptu musical stages, dance floors, and social meeting points. Thousands of amateur musicians, in every genre, perform on sidewalks for the biggest crowds of their lives. Professional musicians perform for new audiences, who come out from under their headphones to hear unfamiliar groups risk-free. And everyone is invited to sing along and enjoy the first day of summer.</p>
+<p>Along with the hundreds of individual concerts, MMNY includes a number of special projects: &quot;Mass Appeal,&quot; where hundreds of musicians band together to perform massive pieces written for a single type of instrument; &quot;Punk Island&quot; on Governors Island; and more to be announced soon.</p>
+<p>Last year, the third MMNY included 900 free concerts with 4,000 musicians. Along with performances by individual musicians, dozens of New York cultural institutions took part &#8212; including Carnegie Hall, the Guggenheim Museum, the Jazz Gallery, Jazzmobile, Central Park Summerstage, the New York Mets, and more.</p>
+
+<br><h3><a name="idea"></a>Where did the idea come from?</h3>
+<p>Make Music New York is based on France&apos;s &quot;F&ecirc;te de la Musique,&quot; a national musical holiday inaugurated in 1982. Ever since, the festival has become an international phenomenon, celebrated on the same day in more than 327 cities in 111 countries, including Germany, Italy, Egypt, Syria, Morocco, Australia, Vietnam, Congo, Cameroon, Fiji, Colombia, Chile, Nepal, and Japan.</p>
+<!-- <p>Official Fete de la Musique website:<a href="http://http://fetedelamusique.culture.fr/index_flash.php" target="_blank">http://fetedelamusique.culture.fr/index_flash.php</a></p>-->
+
+<br><h3><a name="participate"></a>Who can participate?</h3>
+<p>Anyone and everyone, in every borough of the city. Amateurs, part-time professionals, and established artists are all welcome.</p>
+
+<br><h3><a name="signup"></a>How do I sign up to perform / host a concert?</h3>
+<p>Go to <a href="http://www.timeoutnewyork.com/makemusic">www.timeoutnewyork.com/makemusic</a>; the website will lead you through the sign-up process.</p>
+<p>You may register either as a artist (performing at one or more locations) or as a location (hosting one or more artists).</p>
+
+<br><h3><a name="where"></a>Where will the musicians play?</h3>
+<p><b>Sidewalks</b>: Most musicians will perform on New York's 12,000 miles of sidewalks. MMNY organizers secure the necessary permits from the City, so that musicians don't have to deal with all the paperwork.</p>
+<p>If you have a rock band, and you want to set up outside your building and play for your neighbors, we can help make that happen. If you want to perform Bach's cello suites outside your friend's convenience store, you can do that, too. Almost anything is possible.</p>
+<p>To use a sidewalk, you must leave a 5-foot wide path for passers-by, between your concert and the curb. Please choose a space that gives you the room you need.</p>
+<p><b>Parks</b>: MMNY has also secured dozens of City park locations for June 21st concerts. These locations are listed along with the rest on <a href="http://www.timeoutnewyork.com/makemusic">www.timeoutnewyork.com/makemusic</a>, as soon as the park permits come in.</p>
+<p>If you don&#8217;t see the park you&#8217;re looking for, it is probably already being used, unavailable to us, or the permit is still pending.</p>
+<p><b>Community Gardens and Plazas</b>: Some public spaces are privately controlled by community groups, management companies, or individuals. These can be fantastic performance locations, quiet yet accessible. People who control these spaces will make them available on the website.</p>
+<p><b>Streets</b>: Finally, dozens of community organizations are closing off streets around the city for block party concerts. If your group wishes to produce a concert in the street, you must file an application with your local community board by March 21st: download the form, and instructions, at <a href="http://www.makemusicny.org/mmny-block-parties.pdf" target="_blank">http://www.makemusicny.org/mmny-block-parties.pdf</a></p>
+<p>Although your organization will be responsible for securing this permit, please email <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a> when you decide to submit an application. We may be able to help.</p>
+<p><b>Other Spaces</b>: If you want to use some other kind of outdoor location &#8212; such as a cemetery, bridge, subway platform, pier, or ferry &#8212; send an email to <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a> with a detailed proposal of what you want to do, and who you have already spoken to at the location. We make no promises, but we&apos;ll see what we can do.</p>
+
+<br><h3><a name="friends"></a>How do I sign up to perform with my friends?<br>How do I curate a show with multiple artists?</h3>
+<p>Great idea! Each artist should sign up separately &#8212; we need to have a unique musical description and web address for everyone. Then have each one match themselves to the same location, at different time slots. If the entire program has a particular theme or title, put that in the location&apos;s description box.</p>
+
+<br><h3><a name="locations"></a>How do I register more than one location on the website?</h3>
+<p>If you manage more than one location that you want to offer to musicians, you will need to set up a separate account for each one, with separate email addresses.</p>
+<p>We strongly recommend that each location have its own on-site contact on June 21st to oversee things. Don&apos;t spread yourself too thin! If you have a second location that you want to register, find a friend to manage it for you, and register the space with his or her email address.</p>
+
+<br><h3><a name="noband"></a>What if I play an instrument, but don&apos;t have my own band?</h3>
+<p>Join one of our &quot;Mass Appeal&quot; events! For the second year, we are organizing hundreds of musicians to band together to perform massive pieces written for a single type of instrument. Each performance works differently, depending on the genre, the instrument, and the location. Register as an artist on <a href="www.timeoutnewyork.com/makemusic">www.timeoutnewyork.com/makemusic</a>, and choose the appropriate &quot;Mass Appeal&quot; location for your instrument. If you want to organize a Mass Appeal event of your own, email Yvonne at <a href="mailto:yvonne@makemusicny.org">yvonne@makemusicny.org</a>.</p>
+
+<br><h3><a name="paid"></a>Will musicians be paid to perform?</h3>
+<p>Our organization does not pay musicians &#8212; nor do musicians pay us. We are simply setting up the framework by securing the permits, coordinating the concerts, and publicizing the event city-wide with tens of thousands of posters, earned media stories, concert listings with our media partners, an interactive website, and a volunteer street-team.</p>
+<p>Most musicians will be performing for free. But artists and venues are welcome to make any financial arrangements they wish, as long as the concerts are outdoors, free, and open to the public.</p>
+
+<br><h3><a name="provide"></a>Who will provide a stage / backline / tuned grand piano / etc for my concert?</h3>
+<p>Make Music New York is not just another music festival. Yes, there are major stages with major artists, but most of it is closer in spirit to Halloween: people getting together in their own neighborhoods, in a do-it-yourself fashion, putting together their own musical events.</p>
+<p>Our organizers set up the framework for concerts &#8212; the rest is up to you! Artists and locations collaborate to produce the events, find electricity, and provide whatever equipment is needed.</p>
+<p>Unlike most music festivals:</p>
+<p>&#8226; New York City itself is your stage. We&apos;re not constructing stages (though some local promoters are doing so &#8212; and securing additional permits to do so). Performances generally take place at the same level as the audience. <!--To see what this looked like last year, watch this video (LINK).--></p>
+<p>&#8226; You have complete artistic control. It&apos;s your concert. If you want to perform with a different bass player than previously announced, or take an extended kazoo improvisation on Dies Irae, you don&apos;t have to ask our permission! (But let us know if we need to update your concert description.)</p>
+<p>&#8226; Everyone can take part. From professionals to amateurs, from the mainstream to the unfashionably bizarre &#8212; if you can find a spot for your performance that works, you can be part of Make Music New York!</p>
+
+<br><h3><a name="late"></a>How late in the evening can my performance go?</h3>
+<p>If your music is unamplified (meaning that you don&apos;t use any electricity), musicians can perform outside until 10pm. If it&apos;s amplified, it depends on where you are.</p>
+<p>First, look up which precinct your location is in: <a href="http://gis.nyc.gov/dcp/at/f1.jsp" target="_blank">http://gis.nyc.gov/dcp/at/f1.jsp</a></p>
+<p>Generally speaking, amplified sound in the following precincts can go until 10pm:<br>5, 14 (Midtown South), 20, 33, 45, 68, 94, 104, and 115.</p>
+<p>Amplified sound in these precincts can go until 9pm:<br>7, 10, 18 (Midtown North), 19, 23, 24, 32, 42, 49, 63, 72, 73, 101, 105, 108, 122, 123</p>
+<p>Until 8pm:<br>17, 28, 30, 34, 67, 78, 79, 81, 83, 111</p>
+<p>Until 7pm:<br/>40, 44, 46, 71</p>
+<p>Until 6pm:<br/>113</p>
+<p>If your precinct is not listed, the time limit may depend on exactly where you are. Sign up with your preference, and we will let you know what we can do!</p>
+
+<br><h3><a name="close"></a>How can I close my street for a block party concert?</h3>
+<p>If you wish to produce a concert in the street, you must file an application with your local community board by March 21st, on behalf of a qualified organization: download the form, and instructions, at <a href="http://www.makemusicny.org/mmny-block-parties.pdf" target="_blank">http://www.makemusicny.org/mmny-block-parties.pdf</a></p>
+<p>Although your organization will be responsible for securing this permit, please email <a href="mailto:makemusicny@gmail.com">makemusicny@gmail.com</a> when you decide to submit an application. We can help shepherd it through, and may be able to assist in other ways.</p>
+
+<br><h3><a name="sell"></a>Can MMNY performers sell CDs, or ask for donations?</h3>
+<p>Musicians are not allowed to solicit donations, nor can we provide the permits to allow vending at your event.</p>
+<p>On the other hand, musicians are encouraged to pass out fliers to promote their upcoming shows and recordings, ask listeners to sign their mailing list, and generally promote themselves.</p>
+
+<br><h3><a name="promote"></a>What will MMNY do to help promote my concert?</h3>
+<p>We will list all concerts on the Time Out New York / Make Music New York website, in the Metro New York newspaper, and in copies of our MMNY program, distributed citywide. We will pitch stories about noteworthy concerts to the press. MMNY Neighborhood Organizers will also promote the performances in their area with fliers, posters, etc.</p>
+<p>We are counting on musicians and locations to promote their own shows, in all the ways that they normally would &#8212; sending out email blasts, putting notices on websites, calling up all of their friends, etc. Everyone who signs up on the website describes what they will do for promotion.</p>
+
+<br><h3><a name="rain"></a>What happens if it rains?</h3>
+<p>In seven of the past ten years, it has not rained in New York City on June 21st. If it does rain, concerts planned for sidewalks may take place inside a building lobby or store front. In this case, we simply ask that a door or window be opened so that the music is audible from the street.</p>
+<p>Locations on the website will indicate what they can do in case of rain.</p>
+
+<br><h3><a name="no"></a>Can I charge admission for a Make Music New York concert?<br>Can my concert be &#8220;invitation only&#8221;?<br>Can I perform outside the five boroughs?<br>Can I create a MMNY event that does not include any live music?<br>Can I have my event indoors?</h3>
+<p>No. No. No. No. Only if it rains (see above).</p>
+
+<br><h3><a name="backout"></a>What if my band signs up now, and has to back out later?</h3>
+<p>Once your event is confirmed by your chosen location, and by the Make Music organizers, we will block off your spot and pay for your permits. We are counting on you to perform!</p>
+<p>If you do need to cancel, it is your responsibility to find another performer to take your spot. Please let the location &#8211; and us &#8211; know about all program changes ASAP.</p>
+
+<br><h3><a name="yearly"></a>Is this an annual event?</h3>
+<p>Yes, Make Music New York takes place every June 21st. (In 2010, it will fall on a Monday; in 2011, on Tuesday.) It is our hope that Make Music New York will expand from year to year, eventually to the point where, as with the Village Halloween Parade, New Yorkers will organize themselves largely without prompting.</p>
+
+<br><h3><a name="who"></a>Who puts this all together?</h3>
+<p>Make Music New York, Inc., is a non-profit, volunteer-run organization. The board of directors consists of Aaron Friedman (President), Stephanie DeYoung, Ken Dircks, Shannon Romines, Robert Singerman, Kamoy Smalling, Steven Swartz, Michael Urschel, Matthew Washington, and Paul White. Artistic advisors include Don Byron, John Corigliano, Paquito D&apos;Rivera, Meredith Monk, Lee Ranaldo (Sonic Youth), and Steve Reich.</p>
+<p>Over 100 volunteer organizers work throughout the city to help recruit musicians and venues, handle permits, and promote the concerts. If you&apos;re interested in joining us, see below!</p>
+
+<br><h3><a name="volunteer"></a>How can I get involved as a volunteer?</h3>
+<p>Hundreds of volunteers have come together over the last two years to put on Make Music New York &#8212; the largest musical event in NYC history. With your help, we&apos;re going to make it even bigger!</p>
+<p>Over 100 MMNY Neighborhood Organizers have signed on to inspire and coordinate dozens of MMNY concerts in their communities. Working between one and four hours a week, organizers meet hundreds of local musicians, develop relationships with local venues, decide on a promotional plan, collaborate with other organizers throughout NYC, and (sometimes) create a mini-MMNY festival of their own design.</p>
+<p>And no prior organizing experience is required &#8212; if you commit the time, we will guide you through it.</p>
+<p>To learn more, please download the MMNY Neighborhood Organizer Handbook at <a href="http://www.makemusicny.org/mmny-organizer-handbook.pdf">http://www.makemusicny.org/mmny-organizer-handbook.pdf</a><small> (pdf, 3.5 megs)</small>.</p>
+<p>Then email <a href="mailto:chris@makemusicny.org">chris@makemusicny.org</a> to get started!</p>
+
+<br><h3><a name="donate"></a>Where can I donate to Make Music New York?</h3>
+<p>We&apos;re glad you asked! Go to <a href="http://www.makemusicny.org/">http://www.makemusicny.org/</a> and click on &quot;Donate.&quot;</p>
+<p>As we expand and transform a three-year event into an annual cultural landmark, we need your support to keep it going. Please donate generously. Make Music New York, Inc. is a 501(c)(3) nonprofit organization; contributions are 100% tax-deductible.</p>
+
+<?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/839360393_bada79aa01_b.jpg',array('class'=>'floatLeft','height'=>'200'));?><?php echo $html->image('http://www3.timeoutny.com/newyork/export_images/caught-on-camera/mmny2007/bedford-crowd.jpg',array('class'=>'floatRight','height'=>'200'));?>

@@ -1,0 +1,76 @@
+<h3>Make Music Locations</h3>
+<?php echo $html->formTag('/locations/search') ?>
+<?php echo $html->input('Location/search', array('class'=>'text')); ?>
+<?php echo $html->submit('Search');?>
+<br><small>search by name, address, zip code, or location type</small>
+</form>
+<br>
+<fieldset>
+<table class="inav" cellpadding="0" cellspacing="0">
+<?php
+$pagination->setPaging($paging); // Initialize the pagination variables
+$th = array (
+            '<strong>Location</strong>',
+			'<strong>Type</strong>',
+			'<strong>Neighborhood</strong>',
+			'<strong>Electricity</strong>',
+            '<strong>Times Available</strong>',
+			'<strong>Genre(s)</strong>'
+); // Generate the pagination sort links
+echo $html->tableHeaders($th); // Create the table headers with sort links if desired
+
+foreach ($data as $output)
+{
+ 				if ($output['Location']['time_midday'] == '1'){$avail = "Mid Day";
+ 					if ($output['Location']['time_afternoon'] == '1'){$avail = $avail.nl2br("\nAfternoon");}
+ 					if ($output['Location']['time_lateafter'] == '1'){$avail = $avail.nl2br("\nLate Afternoon");}
+ 					if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_afternoon'] == '1' && $output['Location']['time_midday'] == '0'){$avail = 'Afternoon';
+ 					if ($output['Location']['time_lateafter'] == '1'){$avail = $avail.nl2br("\nLate Afternoon");}
+ 					if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_lateafter'] == '1' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0'){$avail = 'Late Afternoon';
+ 					if ($output['Location']['time_evening'] == '1'){$avail = $avail.nl2br("\nEvening");}}
+ 				if ($output['Location']['time_evening'] == '1' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0' && $output['Location']['time_lateafter'] == '0'){$avail = 'Evening';}
+ 				if ($output['Location']['time_evening'] == '0' && $output['Location']['time_midday'] == '0' && $output['Location']['time_afternoon'] == '0' && $output['Location']['time_lateafter'] == '0'){$avail = 'Not Available Anytime';} 				
+
+if ($output['Location']['electricity'] == '0'){$electric = ("Can Provide Electricity");}	
+if ($output['Location']['electricity'] == '1'){$electric = ("Artist Must Provide Electricty");}	
+if ($output['Location']['electricity'] == '2'){$electric = ("No Electricity May Be Used");}
+	$genre = "";
+	if ($output['Location']['blues'] == '1') { $genre = nl2br("\n").'Blues'; }
+	if ($output['Location']['cabaret'] == '1'){$genre = $genre. nl2br("\n").'Cabaret';} 			
+	if ($output['Location']['classical'] == '1'){$genre = $genre. nl2br("\n").'Classical';}			
+	if ($output['Location']['country'] == '1'){$genre = $genre. nl2br("\n").'Country';	} 			
+	if ($output['Location']['electronic'] == '1'){$genre = $genre. nl2br("\n").'Electronic';} 
+	if ($output['Location']['experimental'] == '1'){$genre = $genre. nl2br("\n").'Experimental';} 			
+	if ($output['Location']['folk'] == '1'){$genre = $genre. nl2br("\n").'Folk';} 			
+	if ($output['Location']['hiphop'] == '1'){$genre = $genre. nl2br("\n").'Hip-Hop';}
+	if ($output['Location']['jazz'] == '1'){$genre = $genre. nl2br("\n").'Jazz';}
+	if ($output['Location']['kids'] == '1'){$genre = $genre. nl2br("\n").'Kids';} 			
+	if ($output['Location']['latin'] == '1'){$genre = $genre. nl2br("\n").'Latin';} 			
+	if ($output['Location']['opera'] == '1'){$genre = $genre. nl2br("\n").'Opera';} 			
+	if ($output['Location']['pop'] == '1'){$genre = $genre. nl2br("\n").'Pop';} 
+	if ($output['Location']['reggae'] == '1'){$genre = $genre. nl2br("\n").'Reggae';} 			
+	if ($output['Location']['religious'] == '1'){$genre = $genre. nl2br("\n").'Religious';} 			
+	if ($output['Location']['rock'] == '1'){$genre = $genre. nl2br("\n").'Rock';}			
+	if ($output['Location']['soul'] == '1'){$genre = $genre. nl2br("\n").'Soul';}
+	if ($output['Location']['standards'] == '1'){$genre = $genre. nl2br("\n").'Standards';} 			
+	if ($output['Location']['world'] == '1'){$genre = $genre. nl2br("\n").'World';} 			
+	if ($output['Location']['other'] == '1'){$genre = $genre. nl2br("\n").'Other';} 
+	if ($genre == ""){$genre = 'No Genre(s)';}
+		
+	
+ 	$tr = array (
+        $html->link($output['Location']['locationname'],'/locations/edit/'.$output['Location']['id']),
+        $output['Location']['type'],
+        $output['Location']['hood'],
+	    $electric,  
+        $avail,
+        $genre
+        );
+    echo $html->tableCells($tr,array('class'=>'altRow'),array('class'=>'evenRow'));
+}
+?>
+</table>
+<? echo $this->renderElement('pagination'); // Render the pagination element ?>
+</fieldset>

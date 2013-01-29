@@ -1,0 +1,2 @@
+$(function() {    $('.entree').editable('/specials/update', {       	 id        : 'data[Entree][id]',
+         name      : 'data[Entree][description]',         type      : 'text',         cancel    : 'Cancel',         submit    : 'Save',         tooltip   : 'Click to edit'    });});

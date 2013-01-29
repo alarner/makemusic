@@ -1,0 +1,32 @@
+<h3>Make Music New York Admin Tool</h3>
+<br>
+<?php echo $html->link('Home',"/admin/users/"); ?>
+<br>
+<br>
+<?php echo $html->link('Download CSV Location Confirmed',"/admin/users/dlcsvperformance?lc=1"); ?>
+<br>
+<br>
+<?php echo $html->link('Download CSV Location not Confirmed',"/admin/users/dlcsvperformance?lc=0"); ?>
+<br>
+<br>
+<?php 
+foreach ($data as $csvdata) {          
+	$line = array();
+	 foreach ($csvdata['Performance'] as $k=>$v) {
+		$line[] = $k;
+	}                
+	$line[] = nl2br("\n");
+}
+$csv->addRow($line); 
+
+foreach ($data as $csvdata) {          
+	$line = array();                
+	 foreach ($csvdata['Performance'] as $k=>$v) {
+		$line[] = $v;
+	}                
+	$line[] = nl2br("\n");
+	$csv->addRow($line); 
+}
+
+echo $csv->render(false); 
+?>
